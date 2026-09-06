@@ -24,18 +24,20 @@ a { color: inherit; }
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* Light palette — white ground, faint warm off-white surfaces */
-  --paper:   #ffffff;
-  --surface: #f7f5f0;
-  --ink:     #23201a;
-  --ink-soft:#4b463d;
-  --muted:   #7b7264;
-  --faint:   #a99f8d;
-  --rule:    #ebe5da;
-  --rule-strong: #ddd4c3;
-  --accent:  #8a2f2b;   /* oxblood */
-  --accent-ink: #6f2521;
-  --highlight: #f3ead6;
+  /* Dark, gilded palette — near-black ground, warm gold accent.
+     (Inspired by the moody, gold-framed elegance of concert-poster
+     typography: dark stage, single warm light.) */
+  --paper:   #110f0b;
+  --surface: #18150f;
+  --ink:     #f1ead9;
+  --ink-soft:#cabfa8;
+  --muted:   #96896e;
+  --faint:   #675c44;
+  --rule:    #2b2618;
+  --rule-strong: #3c3420;
+  --accent:  #cda15b;   /* warm gold */
+  --accent-ink: #e6c17e;
+  --highlight: #2c2410;
 
   --measure: 40rem;        /* ideal line length for prose */
   --wide: 72rem;           /* header / grids */
@@ -52,7 +54,7 @@ a { color: inherit; }
   --leading-tight: 1.18;
 
   --radius: 3px;
-  --shadow: 0 1px 2px rgba(35, 32, 26, 0.05), 0 8px 24px rgba(35, 32, 26, 0.06);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 14px 34px rgba(0, 0, 0, 0.5);
 }
 
 /* ---------- 3. Base typography ----------------------------------------- */
@@ -82,7 +84,7 @@ a { color: var(--accent); text-decoration-thickness: 1px;
   text-underline-offset: 0.16em; text-decoration-color: var(--rule-strong); }
 a:hover { text-decoration-color: currentColor; }
 
-::selection { background: var(--highlight); }
+::selection { background: var(--highlight); color: var(--ink); }
 
 .skip-link {
   position: absolute; left: -9999px; top: 0; background: var(--ink);
@@ -98,7 +100,14 @@ a:hover { text-decoration-color: currentColor; }
 .dot { color: var(--faint); margin-inline: 0.5ch; }
 
 /* ---------- 5. Header & footer ----------------------------------------- */
-.site-header { border-bottom: 1px solid var(--rule); background: var(--surface); }
+.site-header {
+  border-bottom: 1px solid var(--rule); background: var(--surface); position: relative;
+}
+.site-header::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent) 45%, var(--accent) 55%, transparent);
+  opacity: 0.6;
+}
 .site-header__inner {
   display: flex; align-items: baseline; justify-content: space-between;
   gap: 1.5rem; padding-block: clamp(1.1rem, 3vw, 1.9rem); flex-wrap: wrap;
@@ -156,7 +165,12 @@ a:hover { text-decoration-color: currentColor; }
 .u-arrow:hover::after { transform: translateX(3px); }
 
 /* Home intro */
-.hero { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.hero { margin-bottom: clamp(2rem, 5vw, 3.5rem); position: relative; }
+.hero::before {
+  content: ""; position: absolute; top: -3rem; right: -4rem; width: 26rem; height: 26rem;
+  background: radial-gradient(circle, rgba(205, 161, 91, 0.14), transparent 70%);
+  pointer-events: none; z-index: -1;
+}
 .hero__prose { max-width: 46rem; }
 .hero__prose :is(h1, h2) { font-size: var(--step-3); font-weight: 700;
   font-variation-settings: "opsz" 120, "SOFT" 25; margin-bottom: 0.4em; letter-spacing: -0.02em; }
@@ -239,7 +253,10 @@ a:hover { text-decoration-color: currentColor; }
 .post-byline { color: var(--ink-soft); }
 
 .post-cover { max-width: 54rem; margin: 0 auto clamp(2rem, 5vw, 3.2rem); }
-.post-cover img { width: 100%; border-radius: var(--radius); }
+.post-cover img {
+  width: 100%; border-radius: var(--radius);
+  box-shadow: 0 0 0 1px rgba(205, 161, 91, 0.14), var(--shadow);
+}
 .post-cover figcaption, figure figcaption { text-align: center; font-size: var(--step--1);
   color: var(--muted); font-style: italic; margin-top: 0.6rem; }
 
@@ -308,7 +325,7 @@ a:hover { text-decoration-color: currentColor; }
   padding: 1.1em 1.3em; font-size: var(--step--1); color: var(--ink-soft); }
 .callout strong { color: var(--ink); }
 .callout--note { border-left-color: #6b7a8a; }
-.callout--warn { border-left-color: #b5892f; background: #fbf4e6; }
+.callout--warn { border-left-color: #b5892f; background: rgba(181, 137, 47, 0.12); }
 .callout--tip  { border-left-color: #4d7a55; }
 
 /* Pull quote — big, centered editorial statement. */
