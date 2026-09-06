@@ -43,8 +43,33 @@ export default {
     { label: "RSS", href: "/feed.xml" },
   ],
 
-  // How many posts to show on the home page before "ver todos".
-  homeRecentCount: 6,
+  // How many posts to feature on the home page.
+  homeRecentCount: 9,
+
+  // A short "about" blurb shown in the footer (magazine-style).
+  about:
+    "Um blog autoral sobre tecnologia, desenvolvimento de software e o ofício " +
+    "de construir coisas — escrito para ser lido com calma.",
+
+  // Per-theme accent colours, à la Increment's per-issue palette. Keys are
+  // theme names (matched case/accent-insensitively). Unlisted themes get a
+  // stable colour from the fallback palette, so this map is optional.
+  themeColors: {
+    "Ensaios": "#4c70b1",
+    "Ofício": "#53a88e",
+    "Bastidores": "#ef766e",
+    "Arquitetura": "#8e65bf",
+    "Ferramentas": "#d69336",
+    "Leitura": "#d6658e",
+    "Carreira": "#40a0ab",
+  },
+
+  // Fallback palette cycled deterministically for themes without an explicit
+  // colour above.
+  themePalette: [
+    "#4c70b1", "#53a88e", "#ef766e", "#8e65bf",
+    "#d69336", "#d6658e", "#40a0ab", "#863051",
+  ],
 };
 
 function normalizeBase(value) {

@@ -114,7 +114,15 @@ reference them by bare name (`grafico.js`, `imagem.png`). See the seed post
 ## Configuration
 
 Edit `site.config.js` for the title, tagline, navigation, author, and social
-links. Deploy-time values come from environment variables:
+links.
+
+Each theme (category) has an accent colour, magazine-style: used on eyebrows,
+the themes strip, and themed page headers. Set them in `themeColors`
+(keyed by theme name); any theme without an explicit colour gets a stable one
+from `themePalette`. `about` is the footer blurb; `homeRecentCount` caps the
+home feed.
+
+Deploy-time values come from environment variables:
 
 - `BASE_URL` — path the site is mounted on. Production is a GitHub Pages
   *project* site, served under `/blog/`, so the CI build passes `/blog`.

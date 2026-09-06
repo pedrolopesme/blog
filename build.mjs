@@ -43,6 +43,7 @@ import {
   rfc822,
   readingTime,
   excerptFromHtml,
+  themeColor,
 } from "./lib/util.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -69,7 +70,7 @@ async function main() {
 
   await renderPosts(posts);
   await renderPages(pages);
-  await renderHome(posts);
+  await renderHome(posts, categories);
   await renderPostsIndex(posts);
   await renderCategories(categories, posts);
   await renderFeed(posts);
@@ -201,10 +202,14 @@ async function loadPages() {
 // ---------------------------------------------------------------------------
 
 function normalizeCategories(value) {
-  return toArray(value).map((name) => ({
-    name: String(name).trim(),
-    slug: slugify(name),
-  }));
+  return toArray(value).map((name) => {
+    const clean = String(name).trim();
+    return {
+      name: clean,
+      slug: slugify(clean),
+      color: themeColor(clean, site.themeColors, site.themePalette),
+    };
+  });
 }
 
 function collectCategories(posts) {
@@ -239,10 +244,25 @@ function bodyClass(base, theme) {
   return [base, theme ? `theme-${slugify(theme)}` : ""].filter(Boolean).join(" ");
 }
 
+function relatedPosts(post, all, n = 3) {
+  const slugs = new Set(post.categories.map((c) => c.slug));
+  const others = all.filter((p) => p.slug !== post.slug);
+  const sameTheme = others.filter((p) =>
+    p.categories.some((c) => slugs.has(c.slug)),
+  );
+  const picked = [...sameTheme];
+  for (const p of others) {
+    if (picked.length >= n) break;
+    if (!picked.includes(p)) picked.push(p);
+  }
+  return picked.slice(0, n);
+}
+
 async function renderPosts(posts) {
   for (const post of posts) {
     const outDir = path.join(OUT, "posts", post.slug);
     if (post.postDir) await copyPostAssets(post.postDir, outDir);
+    const related = relatedPosts(post, posts);
     const html = layout(ctx, {
       title: post.title,
       description: post.summary,
@@ -250,7 +270,7 @@ async function renderPosts(posts) {
       head: extraHead(post),
       canonicalPath: post.url,
       ogImage: post.ogImage ? withBase(site.baseUrl, post.ogImage) : undefined,
-      main: articleMain(ctx, post),
+      main: articleMain(ctx, post, related),
     });
     await writeFile(path.join(outDir, "index.html"), html);
   }
@@ -270,7 +290,7 @@ async function renderPages(pages) {
   }
 }
 
-async function renderHome(posts) {
+async function renderHome(posts, categories) {
   const homeFile = await firstExisting(CONTENT, ["home.md", "home.html"]);
   let intro = "";
   if (homeFile) {
@@ -282,7 +302,7 @@ async function renderHome(posts) {
     title: "",
     bodyClass: "is-home",
     canonicalPath: "/",
-    main: homeMain(ctx, { posts, intro }),
+    main: homeMain(ctx, { posts, intro, categories }),
   });
   await writeFile(path.join(OUT, "index.html"), html);
 }
@@ -315,12 +335,13 @@ async function renderCategories(categories, _posts) {
   for (const cat of categories) {
     const html = layout(ctx, {
       title: cat.name,
-      bodyClass: "is-list",
+      bodyClass: bodyClass("is-list", cat.name),
       canonicalPath: `/categorias/${cat.slug}/`,
       main: listMain(ctx, {
         title: cat.name,
         lead: `Escritos sob o tema “${cat.name}”.`,
         posts: cat.posts,
+        accent: cat.color,
       }),
     });
     await writeFile(
