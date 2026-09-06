@@ -14,7 +14,7 @@ export default {
   baseUrl,
   siteUrl,
 
-  title: "Margens",
+  title: "Pedro Mendes",
   // A short, editorial tagline. Shown in the header and <title>.
   tagline: "Notas sobre tecnologia, ofício e as ideias no meio do caminho.",
   description:

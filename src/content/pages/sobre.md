@@ -4,8 +4,8 @@ slug: sobre
 summary: "Quem escreve, e o que você encontra por aqui."
 ---
 
-**Margens** é o caderno público de [Pedro Mendes](https://github.com/pedrolopesme)
-— um lugar para pensar em voz alta sobre tecnologia, desenvolvimento de software
+Este é o blog de [Pedro Mendes](https://github.com/pedrolopesme) — um lugar
+para pensar em voz alta sobre tecnologia, desenvolvimento de software
 e o ofício de construir coisas que duram.
 
 Escrevo aqui do jeito que gosto de ler: com calma, com cuidado com a palavra e
@@ -21,4 +21,4 @@ um caderno de ensaios.
 ## Fale comigo
 
 Se algum texto te fizer pensar, discordar ou lembrar de algo, me escreva. As
-melhores conversas começam nas margens.
+melhores conversas começam com uma boa leitura.

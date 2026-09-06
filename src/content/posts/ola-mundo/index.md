@@ -3,7 +3,7 @@ title: "Olá, mundo — e por que este blog existe"
 date: 2026-09-05
 categories: ["Ensaios", "Bastidores"]
 summary: >
-  O primeiro escrito destas Margens: o que é este espaço, como ele foi
+  O primeiro escrito deste blog: o que é este espaço, como ele foi
   construído e como cada post pode ter vida própria — inclusive elementos
   interativos feitos sob medida.
 styles: ["style.css"]
@@ -12,7 +12,7 @@ scripts: ["grafico.js"]
 
 <p class="dropcap">
 Todo blog começa com uma promessa silenciosa entre quem escreve e quem lê:
-a de que valerá a pena o tempo gasto na leitura. Estas <em>Margens</em> nascem
+a de que valerá a pena o tempo gasto na leitura. Este blog nasce
 com essa promessa em mente. Menos vitrine de tecnologia, mais caderno de
 anotações; menos ruído, mais tipografia, respiro e cuidado com a palavra.
 </p>
@@ -72,7 +72,7 @@ para a maioria das páginas e liberdade total quando um texto merece algo único
 ## O que vem por aqui
 
 Ensaios sobre engenharia, bastidores de projetos, notas de leitura e o que mais
-couber nestas margens. Se algo aqui te fizer pensar — ou discordar — me escreva.
+aparecer pelo caminho. Se algo aqui te fizer pensar — ou discordar — me escreva.
 É para isso que este espaço existe.
 
 *Boas leituras.*
