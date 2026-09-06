@@ -62,6 +62,9 @@ export default {
     "Ferramentas": "#d69336",
     "Leitura": "#d6658e",
     "Carreira": "#40a0ab",
+    "IA": "#c05a2c",
+    "Go": "#0aa0b5",
+    "Cultura": "#9a5bb0",
   },
 
   // Fallback palette cycled deterministically for themes without an explicit
