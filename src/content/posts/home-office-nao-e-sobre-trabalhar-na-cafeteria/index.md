@@ -1,7 +1,7 @@
 ---
 title: "Home office não é sobre trabalhar na cafeteria"
 categories: ["Carreira", "Cultura"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Home office não é sobre trabalhar na cafeteria"
 ---
 

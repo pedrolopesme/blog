@@ -1,7 +1,7 @@
 ---
 title: "Erros em Go"
 categories: ["Go", "Ofício"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Erros em Go"
 ---
 

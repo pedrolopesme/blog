@@ -1,7 +1,7 @@
 ---
 title: "Carreira de dev dura pra sempre"
 categories: ["Carreira"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Carreira de dev dura pra sempre"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "OpenAI vs DeepSeek"
 categories: ["IA"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "OpenAI vs DeepSeek"
 ---
 

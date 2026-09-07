@@ -1,7 +1,7 @@
 ---
 title: "O Mito do Débito Técnico"
 categories: ["Ofício"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "O Mito do Débito Técnico"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Não seja assim"
 categories: ["Carreira"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Não seja assim"
 ---
 

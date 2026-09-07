@@ -1,7 +1,7 @@
 ---
 title: "Tecnologia não anda sozinha"
 categories: ["Cultura"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Tecnologia não anda sozinha"
 ---
 

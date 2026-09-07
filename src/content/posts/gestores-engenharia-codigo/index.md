@@ -1,7 +1,7 @@
 ---
 title: "Será que gestores de engenharia devem se afastar do código?"
 categories: ["Carreira", "Cultura"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Será que gestores de engenharia devem se afastar do código?"
 ---
 

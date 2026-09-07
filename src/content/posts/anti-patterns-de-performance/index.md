@@ -1,9 +1,9 @@
 ---
 title: "Anti-Patterns de Performance"
 categories: ["Ofício"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Anti-Patterns de Performance"
-background: "background.png"
+background: "background.webp"
 ---
 
 A tecnologia vive de ciclos, e um dos mais frequentes é redescobrir como *não* fazer as coisas.

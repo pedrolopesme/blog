@@ -1,7 +1,7 @@
 ---
 title: "IA vai acabar com devs"
 categories: ["IA", "Carreira"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "IA vai acabar com devs"
 ---
 

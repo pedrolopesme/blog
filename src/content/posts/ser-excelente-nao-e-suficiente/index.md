@@ -1,7 +1,7 @@
 ---
 title: "Ser excelente não é suficiente"
 categories: ["Carreira"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Ser excelente não é suficiente"
 ---
 

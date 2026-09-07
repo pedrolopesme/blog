@@ -1,7 +1,7 @@
 ---
 title: "Não contrato mais jr/pleno"
 categories: ["IA", "Carreira"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Não contrato mais jr/pleno"
 ---
 

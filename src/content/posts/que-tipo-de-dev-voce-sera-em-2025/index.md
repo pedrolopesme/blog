@@ -1,7 +1,7 @@
 ---
 title: "Que tipo de dev você será em 2025"
 categories: ["Carreira"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Que tipo de dev você será em 2025"
 ---
 

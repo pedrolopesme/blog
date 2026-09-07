@@ -1,7 +1,7 @@
 ---
 title: "Go: acertos e deficiências, segundo os próprios devs"
 categories: ["Go"]
-cover: "capa.png"
+cover: "capa.webp"
 coverAlt: "Go: acertos e deficiências, segundo os próprios devs"
 ---
 
