@@ -695,7 +695,7 @@ a:hover { text-decoration-color: currentColor; }
     flex-direction: row; align-items: center; justify-content: center;
     text-align: center; gap: 0.9rem; position: relative; min-height: 2.6rem;
   }
-  .site-header__brand { flex-direction: row; gap: 0.6rem; }
+  .site-header__brand { flex-direction: row; gap: 0.6rem; position: relative; z-index: 60; }
   .site-header__title { display: none; }
   .site-header__toggle {
     display: block; position: fixed; top: 0.85rem; right: var(--gutter); z-index: 60;
