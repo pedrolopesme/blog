@@ -166,6 +166,7 @@
     hideTimer = setTimeout(hideToolbar, 260);
   }
 
+  // Show recolor/remove toolbar on hover (desktop) and tap (mobile).
   prose.addEventListener("mouseover", (e) => {
     const m = e.target.closest && e.target.closest("mark.hl");
     if (m) showToolbar(m.dataset.hlId);
@@ -174,28 +175,107 @@
     const m = e.target.closest && e.target.closest("mark.hl");
     if (m) scheduleHide();
   });
-
-  // --- capture new selections ----------------------------------------------
-  prose.addEventListener("mouseup", () => {
-    // let click-to-recolor on existing marks not create new ones
-    setTimeout(() => {
-      const sel = window.getSelection();
-      if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
-      const range = sel.getRangeAt(0);
-      if (!prose.contains(range.commonAncestorContainer)) return;
-      const start = charOffset(prose, range.startContainer, range.startOffset);
-      const end = charOffset(prose, range.endContainer, range.endOffset);
-      if (start < 0 || end < 0 || end <= start) return;
-      const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-      const hls = load();
-      hls.push({ id: id, start: start, end: end, color: DEFAULT });
-      save(hls);
-      wrapRange(prose, start, end, DEFAULT, id);
-      sel.removeAllRanges();
-    }, 0);
+  prose.addEventListener("click", (e) => {
+    const m = e.target.closest && e.target.closest("mark.hl");
+    const sel = window.getSelection();
+    if (m && (!sel || sel.isCollapsed)) {
+      clearTimeout(hideTimer);
+      showToolbar(m.dataset.hlId);
+    }
+  });
+  document.addEventListener("pointerdown", (e) => {
+    if (toolbar && toolbar.classList.contains("is-open")) {
+      if (!toolbar.contains(e.target) && !(e.target.closest && e.target.closest("mark.hl"))) {
+        hideToolbar();
+      }
+    }
   });
 
-  window.addEventListener("scroll", () => { if (activeId) hideToolbar(); }, { passive: true });
+  // --- capture new selections (touch + mouse) via a confirm button ---------
+  let pending = null;
+  let addBtn = null;
+  let selTimer = null;
+
+  function buildAddBtn() {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "hl-add";
+    b.textContent = "Marcar";
+    b.addEventListener("pointerdown", (e) => e.preventDefault()); // keep selection
+    b.addEventListener("click", () => {
+      if (!pending) return;
+      const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+      const hls = load();
+      hls.push({ id: id, start: pending.start, end: pending.end, color: DEFAULT });
+      save(hls);
+      wrapRange(prose, pending.start, pending.end, DEFAULT, id);
+      pending = null;
+      hideAddBtn();
+      const sel = window.getSelection();
+      if (sel) sel.removeAllRanges();
+    });
+    document.body.appendChild(b);
+    return b;
+  }
+  function showAddBtn(range) {
+    if (!addBtn) addBtn = buildAddBtn();
+    addBtn.classList.add("is-open");
+    const rect = range.getBoundingClientRect();
+    const bb = addBtn.getBoundingClientRect();
+    let left = rect.left + rect.width / 2 - bb.width / 2;
+    left = Math.max(8, Math.min(left, window.innerWidth - bb.width - 8));
+    let top = rect.top - bb.height - 10;
+    if (top < 8) top = rect.bottom + 10;
+    addBtn.style.left = left + "px";
+    addBtn.style.top = top + "px";
+  }
+  function hideAddBtn() {
+    if (addBtn) addBtn.classList.remove("is-open");
+  }
+
+  function evalSelection() {
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || sel.rangeCount === 0) {
+      pending = null;
+      hideAddBtn();
+      return;
+    }
+    const range = sel.getRangeAt(0);
+    if (!prose.contains(range.commonAncestorContainer)) {
+      pending = null;
+      hideAddBtn();
+      return;
+    }
+    const start = charOffset(prose, range.startContainer, range.startOffset);
+    const end = charOffset(prose, range.endContainer, range.endOffset);
+    if (start < 0 || end < 0 || end <= start) {
+      pending = null;
+      hideAddBtn();
+      return;
+    }
+    pending = { start: start, end: end };
+    showAddBtn(range);
+  }
+  document.addEventListener("selectionchange", () => {
+    clearTimeout(selTimer);
+    selTimer = setTimeout(evalSelection, 180);
+  });
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (activeId) hideToolbar();
+      if (addBtn && addBtn.classList.contains("is-open") && pending) {
+        const sel = window.getSelection();
+        if (sel && !sel.isCollapsed && sel.rangeCount) {
+          showAddBtn(sel.getRangeAt(0));
+        } else {
+          hideAddBtn();
+        }
+      }
+    },
+    { passive: true }
+  );
 
   renderAll();
 })();

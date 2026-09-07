@@ -633,6 +633,15 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   margin-left: 0.15rem; border-left: 1px solid var(--rule); padding-left: 0.5rem;
 }
 .hl-remove:hover { color: var(--accent-ink); }
+.hl-add {
+  position: fixed; z-index: 80; display: none; cursor: pointer;
+  font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: #fbf5e6;
+  background: var(--accent-ink); border: 0; border-radius: 100px;
+  padding: 0.5rem 0.9rem; box-shadow: 0 6px 22px rgba(64, 55, 42, 0.22);
+}
+.hl-add.is-open { display: block; }
+.hl-add:active { transform: scale(0.96); }
 
 /* Kindle-style reading progress */
 .reading-meta {
