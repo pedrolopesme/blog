@@ -468,15 +468,16 @@ a:hover { text-decoration-color: currentColor; }
   display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.5ch;
 }
 .post-share {
-  display: flex; align-items: center; gap: 0.3rem;
+  display: flex; align-items: center; gap: 0.4rem;
 }
 .post-share__link {
-  font-family: var(--font-sans); font-size: 0.68rem; font-weight: 500;
-  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
-  color: var(--muted); padding: 0.3rem 0.6rem; border: 1px solid var(--rule);
-  border-radius: 100px; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2rem; height: 2rem; border: 1px solid var(--rule); border-radius: 50%;
+  color: var(--muted); text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 .post-share__link:hover { color: var(--accent); border-color: var(--accent); }
+.post-share__link svg { display: block; }
 
 /* Post quote — an integrated, hand-set "thought" (no box) */
 .post-quote {
