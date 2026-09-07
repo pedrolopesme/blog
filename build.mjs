@@ -260,10 +260,13 @@ function relatedPosts(post, all, n = 3) {
 }
 
 async function renderPosts(posts) {
-  for (const post of posts) {
+  for (let i = 0; i < posts.length; i++) {
+    const post = posts[i];
     const outDir = path.join(OUT, "posts", post.slug);
     if (post.postDir) await copyPostAssets(post.postDir, outDir);
     const related = relatedPosts(post, posts);
+    const prev = i < posts.length - 1 ? posts[i + 1] : null;
+    const next = i > 0 ? posts[i - 1] : null;
     const html = layout(ctx, {
       title: post.title,
       description: post.summary,
@@ -271,7 +274,7 @@ async function renderPosts(posts) {
       head: extraHead(post),
       canonicalPath: post.url,
       ogImage: post.ogImage ? withBase(site.baseUrl, post.ogImage) : undefined,
-      main: articleMain(ctx, post, related),
+      main: articleMain(ctx, post, related, prev, next),
     });
     await writeFile(path.join(outDir, "index.html"), html);
   }
