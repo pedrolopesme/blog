@@ -23,10 +23,10 @@
   left.className = "reading-meta__left";
   const right = document.createElement("span");
   right.className = "reading-meta__right";
+  meta.appendChild(bar);
   meta.appendChild(left);
   meta.appendChild(right);
 
-  document.body.appendChild(bar);
   document.body.appendChild(meta);
 
   function update() {
