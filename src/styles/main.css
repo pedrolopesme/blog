@@ -209,7 +209,7 @@ a:hover { text-decoration-color: currentColor; }
 .home-hero:hover .home-hero__art img { transform: scale(1.03); }
 .home-hero__flag {
   font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.14em;
-  font-size: 0.66rem; font-weight: 600; color: var(--accent-ink); margin-bottom: 0.7rem;
+  font-size: 0.66rem; font-weight: 600; color: var(--accent-ink); margin-bottom: 0.6rem;
 }
 .home-hero__title {
   font-family: var(--font-display); font-weight: 500; font-size: var(--step-3);
