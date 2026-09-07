@@ -69,8 +69,8 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-weight: 400;
   line-height: var(--leading-tight);
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -178,7 +178,7 @@ a:hover { text-decoration-color: currentColor; }
 /* Home masthead — left-aligned lede, no floating centred column. */
 .hero { margin-bottom: clamp(2.5rem, 6vw, 4rem); }
 .hero .prose { max-width: 44rem; margin-inline: 0; }
-.hero__prose :is(h1, h2) { font-size: var(--step-3); font-weight: 700;
+.hero__prose :is(h1, h2) { font-size: var(--step-3); font-weight: 400;
   font-variation-settings: "opsz" 120, "SOFT" 25; margin-bottom: 0.3em; letter-spacing: -0.02em; }
 .hero__prose p { font-size: var(--step-1); color: var(--ink-soft); }
 
@@ -212,9 +212,9 @@ a:hover { text-decoration-color: currentColor; }
 .article-block__art img { width: 100%; height: 100%; object-fit: cover;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
 .article-block:hover .article-block__art img { transform: scale(1.03); }
-.article-block__title { font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.01em;
+.article-block__title { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em;
   line-height: 1.2; font-size: var(--step-1); color: var(--ink); text-wrap: balance; }
-.article-block__title.serif { font-family: var(--font-display); font-weight: 700;
+.article-block__title.serif { font-family: var(--font-serif); font-weight: 500;
   letter-spacing: -0.02em; font-variation-settings: "opsz" 80, "SOFT" 15; }
 .article-block:hover .article-block__title { color: var(--tc, var(--accent)); }
 .article-block__intro { margin-top: 0.5rem; color: var(--ink-soft); font-size: var(--step-0);
@@ -234,7 +234,7 @@ a:hover { text-decoration-color: currentColor; }
 
 /* List / page heads */
 .page-head { margin-bottom: clamp(2rem, 5vw, 3.2rem); }
-.page-title { font-size: var(--step-3); font-weight: 700;
+.page-title { font-size: var(--step-3); font-weight: 400;
   font-variation-settings: "opsz" 100, "SOFT" 25; }
 .page-title--themed { border-bottom: 4px solid var(--tc, var(--accent));
   display: inline-block; padding-bottom: 0.2rem; }
@@ -255,10 +255,10 @@ a:hover { text-decoration-color: currentColor; }
 
 /* ---------- 7. Article & prose ----------------------------------------- */
 .post { max-width: 43rem; }
-.post-header { max-width: var(--measure); margin-inline: auto; text-align: center;
-  margin-bottom: clamp(2rem, 5vw, 3.2rem); }
+.post-header { width: 100%; max-width: var(--measure); margin-inline: auto; text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3.2rem); padding-top: clamp(2rem, 5vw, 3.5rem); }
 .post-title { font-size: var(--step-4); font-weight: 700; margin: 0.3em 0 0.5em;
-  font-variation-settings: "opsz" 144, "SOFT" 35; letter-spacing: -0.025em; }
+  font-variation-settings: "opsz" 144, "SOFT" 35; letter-spacing: -0.025em; font-family: var(--font-display); }
 .post-lede { font-size: var(--step-1); color: var(--ink-soft); font-style: italic;
   max-width: 34rem; margin-inline: auto; line-height: 1.5; }
 .post-meta { margin-top: 1.4rem; font-family: var(--font-sans); font-size: 0.8rem;
@@ -267,7 +267,7 @@ a:hover { text-decoration-color: currentColor; }
 .post-byline { color: var(--ink-soft); }
 
 /* Cover hero: image as background, white serif title overlaid */
-.post-cover { position: relative; max-width: 100%; margin: 0; height: clamp(20rem, 52vw, 38rem); overflow: hidden; }
+.post-cover { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); height: clamp(24rem, 55vw, 42rem); overflow: hidden; border-radius: 0; }
 .post-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
 .post-cover__overlay {
   position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column;
@@ -303,7 +303,7 @@ a:hover { text-decoration-color: currentColor; }
 .prose p { hyphens: auto; }
 .prose h2 { font-size: var(--step-2); margin-top: 2.4em; font-variation-settings: "opsz" 60, "SOFT" 12; }
 .prose h3 { font-size: var(--step-1); margin-top: 2em; }
-.prose h4 { font-size: var(--step-0); font-weight: 600; margin-top: 1.8em; letter-spacing: 0; }
+.prose h4 { font-size: var(--step-0); font-weight: 400; margin-top: 1.8em; letter-spacing: 0; }
 .prose h2 + p, .prose h3 + p { margin-top: 0.7em; }
 
 .prose a { text-decoration: underline; }
