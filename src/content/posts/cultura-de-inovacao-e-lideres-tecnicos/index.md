@@ -4,6 +4,7 @@ date: 2026-09-07
 categories: ["Cultura", "Carreira"]
 cover: "capa.png"
 coverAlt: "Cultura de inovação e Líderes Técnicos"
+background: "background.png"
 ---
 
 Inovação não é sobre código. É sobre cultura.

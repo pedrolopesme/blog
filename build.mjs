@@ -148,6 +148,7 @@ async function loadPosts() {
       cover: data.cover || null,
       coverAlt: data.coverAlt || data.cover_alt || "",
       coverCaption: data.coverCaption || data.cover_caption || "",
+      background: data.background || null,
       styles: toArray(data.styles),
       scripts: toArray(data.scripts),
       rawHead: data.head || "",
