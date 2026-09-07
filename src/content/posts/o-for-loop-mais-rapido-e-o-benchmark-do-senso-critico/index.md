@@ -1,6 +1,10 @@
 ---
 title: "O for loop mais rápido e o benchmark do senso crítico"
+date: 2026-09-07
 categories: ["Ofício"]
+cover: "capa.png"
+coverAlt: "O for loop mais rápido e o benchmark do senso crítico"
+background: "background.png"
 ---
 
 Fonte: [https://github.com/bddicken/languages](https://github.com/bddicken/languages)
