@@ -9,7 +9,8 @@
 /* ---------- 1. Reset ---------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+  font-size: calc(100% * var(--reading-scale, 1)); }
 body { min-height: 100vh; text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 img, picture, svg, video { display: block; max-width: 100%; height: auto; }
@@ -38,7 +39,7 @@ a { color: inherit; }
   --accent-ink: #7f5320;
   --highlight: #ece0be;
 
-  --measure: 40rem;        /* ideal line length for prose */
+  --measure: clamp(40rem, 32rem + 16vw, 50rem); /* fluid reading column */
   --wide: 72rem;           /* header / grids */
   --gutter: clamp(1.1rem, 5vw, 2.5rem);
 
@@ -600,7 +601,6 @@ a:hover { text-decoration-color: currentColor; }
 
 /* The prose column — the heart of the reading experience. */
 .prose { max-width: var(--measure); margin-inline: auto; }
-.is-post .prose { font-size: calc(var(--step-0) * var(--reading-scale, 1)); }
 .prose > * + * { margin-top: 1.35em; }
 .prose > :first-child { margin-top: 0; }
 .prose > :last-child { margin-bottom: 0; }
@@ -824,7 +824,7 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   .home-grid { grid-template-columns: 1fr; }
   .site-footer__top { grid-template-columns: repeat(3, 1fr); gap: 1.8rem 1rem; }
   .site-footer__brand-col { grid-column: 1 / -1; max-width: none; }
-  .is-post .prose { font-size: calc(1.22rem * var(--reading-scale, 1)); line-height: 1.75; }
+  .is-post .prose { font-size: 1.2rem; line-height: 1.75; }
 }
 
 /* ---------- Dark theme ------------------------------------------------- */
@@ -864,7 +864,6 @@ mark.hl { color: #2a2118; }
 .type-pop.is-open { display: flex; }
 .type-pop__row { display: flex; align-items: center; }
 .type-pop__row--size { justify-content: space-between; gap: 0.6rem; }
-.type-pop__row--width { gap: 0.35rem; }
 .type-pop__btn {
   min-width: 2.2rem; height: 2rem; border: 1px solid var(--rule-strong); border-radius: 6px;
   background: transparent; cursor: pointer; color: var(--ink); font-family: var(--font-serif);
@@ -873,14 +872,17 @@ mark.hl { color: #2a2118; }
 .type-pop__btn:hover { border-color: var(--accent); color: var(--accent); }
 .type-pop__val { font-family: var(--font-sans); font-size: 0.78rem; color: var(--ink-soft);
   font-variant-numeric: tabular-nums; }
-.type-pop__w {
-  flex: 1; padding: 0.4rem 0.3rem; border: 1px solid var(--rule); border-radius: 6px;
-  background: transparent; cursor: pointer; color: var(--ink-soft);
-  font-family: var(--font-sans); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.04em;
+
+/* ---------- Smooth theme transition ------------------------------------ */
+/* Fallback (browsers without View Transitions): brief cross-property fade */
+.theme-anim, .theme-anim * {
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease, fill 0.5s ease, box-shadow 0.5s ease !important;
 }
-.type-pop__w:hover { border-color: var(--accent); color: var(--accent); }
-.type-pop__w.is-active { background: var(--accent); border-color: var(--accent); color: #fbf5e6; }
-[data-theme="dark"] .type-pop__w.is-active { color: #211c15; }
+/* View Transitions API: gentle full-page crossfade of the theme swap */
+::view-transition-old(root), ::view-transition-new(root) {
+  animation-duration: 0.5s; animation-timing-function: ease;
+}
 
 /* ---------- Reduced motion --------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
