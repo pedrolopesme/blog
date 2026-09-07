@@ -1,16 +1,25 @@
 ---
 title: "Sobre"
 slug: sobre
-summary: "Quem escreve, e o que você encontra por aqui."
+summary: "Engenheiro de software, escritor nas horas vagas e leitor o tempo todo. Aqui penso em voz alta sobre o ofício de construir coisas que duram."
+photo: "self.webp"
+photoAlt: "Retrato de Pedro Mendes"
+social:
+  - label: "LinkedIn"
+    href: "https://www.linkedin.com/in/pedrolopesme/"
+  - label: "X"
+    href: "https://x.com/pedrolopesme"
+  - label: "GitHub"
+    href: "https://github.com/pedrolopesme"
 ---
 
-Este é o blog de [Pedro Mendes](https://github.com/pedrolopesme) — um lugar
-para pensar em voz alta sobre tecnologia, desenvolvimento de software
-e o ofício de construir coisas que duram.
+Sou o **Pedro Mendes**. Trabalho com desenvolvimento de software há mais de uma
+década e escrevo aqui do jeito que gosto de ler: com calma, com cuidado com a
+palavra e com um respeito antigo pela boa tipografia. Nada de vitrine de
+tecnologia — mais um caderno de ensaios.
 
-Escrevo aqui do jeito que gosto de ler: com calma, com cuidado com a palavra e
-com um respeito antigo pela boa tipografia. Nada de vitrine de tecnologia — mais
-um caderno de ensaios.
+Este é um lugar para pensar em voz alta sobre engenharia, carreira e as ideias
+que aparecem no meio do caminho.
 
 ## O que você encontra
 
@@ -21,4 +30,7 @@ um caderno de ensaios.
 ## Fale comigo
 
 Se algum texto te fizer pensar, discordar ou lembrar de algo, me escreva. As
-melhores conversas começam com uma boa leitura.
+melhores conversas começam com uma boa leitura — me encontra no
+[LinkedIn](https://www.linkedin.com/in/pedrolopesme/),
+no [X](https://x.com/pedrolopesme) ou no
+[GitHub](https://github.com/pedrolopesme).

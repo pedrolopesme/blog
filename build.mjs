@@ -198,6 +198,9 @@ async function loadPages() {
       scripts: toArray(data.scripts),
       rawHead: data.head || "",
       theme: data.theme || "",
+      photo: data.photo || null,
+      photoAlt: data.photoAlt || data.title || "",
+      social: Array.isArray(data.social) ? data.social : null,
       html,
       url: `/${slug}/`,
     });
