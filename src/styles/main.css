@@ -477,9 +477,8 @@ a:hover { text-decoration-color: currentColor; }
   opacity: 0; transition: opacity 0.15s ease; font-family: var(--font-serif); }
 :is(h2, h3, h4):hover .heading-anchor { opacity: 1; }
 
-/* Optional drop cap for the first paragraph (add class .lead to a <p>). */
-.prose p.lead::first-letter,
-.prose p.dropcap::first-letter {
+/* Drop cap — first paragraph of post automatically */
+.is-post .prose > p:first-of-type::first-letter {
   font-family: var(--font-display); font-weight: 700; float: left; line-height: 0.72;
   font-size: 3.6em; padding-right: 0.08em; margin-top: 0.06em; color: var(--accent-ink);
 }
