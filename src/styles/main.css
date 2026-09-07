@@ -412,7 +412,7 @@ a:hover { text-decoration-color: currentColor; }
   font-variation-settings: "opsz" 144, "SOFT" 35; letter-spacing: -0.025em; font-family: var(--font-display); }
 .post-lede { font-size: var(--step-1); color: var(--ink-soft); font-style: italic;
   max-width: 34rem; margin-inline: auto; line-height: 1.5; }
-.post-meta { margin-top: 1.4rem; font-family: var(--font-sans); font-size: 0.8rem;
+.post-meta { margin-top: 1rem; font-family: var(--font-sans); font-size: 0.78rem;
   letter-spacing: 0.03em; color: var(--muted); display: flex; flex-wrap: wrap;
   justify-content: center; align-items: center; gap: 0.5ch; }
 .post-byline { color: var(--ink-soft); }
@@ -451,22 +451,32 @@ a:hover { text-decoration-color: currentColor; }
 .post-cover:hover .post-cover__cat { opacity: 0; }
 .post-header[hidden] { display: none; }
 
-/* Post intro: meta info between cover and article prose */
+/* Post intro: compact meta + share bar */
 .post-intro {
-  max-width: var(--measure); margin-inline: auto; text-align: center;
-  padding-block: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: var(--measure); margin-inline: auto;
+  padding-block: clamp(0.8rem, 2vw, 1.2rem);
   border-bottom: 1px solid var(--rule);
   margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
-.post-intro .post-lede {
-  font-size: var(--step-1); color: var(--ink-soft); font-style: italic;
-  max-width: 34rem; margin-inline: auto; line-height: 1.5; margin-bottom: 1rem;
+.post-meta-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  flex-wrap: wrap;
 }
-.post-intro .post-meta {
-  font-family: var(--font-sans); font-size: 0.8rem;
-  letter-spacing: 0.03em; color: var(--muted); display: flex; flex-wrap: wrap;
-  justify-content: center; align-items: center; gap: 0.5ch;
+.post-meta {
+  font-family: var(--font-sans); font-size: 0.78rem;
+  letter-spacing: 0.03em; color: var(--muted);
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.5ch;
 }
+.post-share {
+  display: flex; align-items: center; gap: 0.3rem;
+}
+.post-share__link {
+  font-family: var(--font-sans); font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  color: var(--muted); padding: 0.3rem 0.6rem; border: 1px solid var(--rule);
+  border-radius: 100px; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.post-share__link:hover { color: var(--accent); border-color: var(--accent); }
 
 /* Post quote — an integrated, hand-set "thought" (no box) */
 .post-quote {
