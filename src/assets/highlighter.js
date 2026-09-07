@@ -220,6 +220,18 @@
   function showAddBtn(range) {
     if (!addBtn) addBtn = buildAddBtn();
     addBtn.classList.add("is-open");
+    // On touch / small screens the native selection toolbar hugs the selection,
+    // so anchor our button to the bottom-center of the viewport instead.
+    const coarse = window.matchMedia &&
+      (window.matchMedia("(pointer: coarse)").matches ||
+        window.matchMedia("(max-width: 40rem)").matches);
+    if (coarse) {
+      addBtn.classList.add("hl-add--fixed");
+      addBtn.style.left = "";
+      addBtn.style.top = "";
+      return;
+    }
+    addBtn.classList.remove("hl-add--fixed");
     const rect = range.getBoundingClientRect();
     const bb = addBtn.getBoundingClientRect();
     let left = rect.left + rect.width / 2 - bb.width / 2;

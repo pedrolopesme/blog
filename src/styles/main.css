@@ -714,6 +714,12 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
 }
 .hl-add.is-open { display: block; }
 .hl-add:active { transform: scale(0.96); }
+/* Touch / small screens: pinned to bottom-center, avoids native toolbar collision */
+.hl-add--fixed {
+  left: 50% !important; transform: translateX(-50%);
+  bottom: clamp(1.6rem, 6vw, 3rem) !important; top: auto !important;
+  font-size: 0.84rem; padding: 0.65rem 1.4rem;
+}
 
 /* Kindle-style reading progress */
 .reading-meta {
