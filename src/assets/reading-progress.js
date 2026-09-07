@@ -34,8 +34,8 @@
     const start = window.scrollY + rect.top;
     const height = el.offsetHeight || 1;
     const winH = window.innerHeight;
-    let p = (window.scrollY + winH - start) / height;
-    p = Math.max(0, Math.min(1, p));
+    const raw = (window.scrollY + winH - start) / height; // may exceed 1 past the end
+    const p = Math.max(0, Math.min(1, raw));
 
     fill.style.width = (p * 100).toFixed(2) + "%";
     right.textContent = Math.round(p * 100) + "% lido";
@@ -46,8 +46,12 @@
     } else {
       left.textContent = "";
     }
-    const show = window.scrollY > winH * 0.45;
-    document.body.classList.toggle("reading-active", show);
+
+    // Visible while reading; hidden once fully read (>=100%). Reappears when
+    // the reader scrolls back up (raw drops below the end again).
+    const scrolledIn = window.scrollY > winH * 0.35;
+    const done = raw >= 1;
+    document.body.classList.toggle("reading-active", scrolledIn && !done);
   }
 
   window.addEventListener("scroll", update, { passive: true });
