@@ -440,51 +440,51 @@ a:hover { text-decoration-color: currentColor; }
   letter-spacing: 0.03em; margin-top: auto; padding-top: 0.35rem;
 }
 
-/* Post navigation — prev/next with hover preview */
-.post-nav {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-  margin-top: clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--rule);
-  background: var(--rule);
-}
-.post-nav__item {
-  display: flex; flex-direction: column; padding: clamp(1.5rem, 3vw, 2.5rem);
-  background: var(--surface); text-decoration: none; color: var(--ink);
-  position: relative; min-height: 5rem; transition: background 0.2s ease;
-}
-.post-nav__item:hover { background: var(--paper); }
-.post-nav__item--next { text-align: right; align-items: flex-end; }
-.post-nav__item--empty { background: var(--paper); }
-.post-nav__label {
-  font-family: var(--font-sans); font-size: 0.72rem; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--muted); font-weight: 500; margin-bottom: 0.4rem;
-}
-.post-nav__title {
-  font-family: var(--font-serif); font-weight: 500; font-size: var(--step-0);
-  line-height: 1.3; letter-spacing: -0.01em; color: var(--ink);
-}
-.post-nav__item:hover .post-nav__title { color: var(--accent); }
+/* Post navigation — floating edge tabs that expand on hover */
+.post-nav { display: none; }
 
-/* Hover preview card */
-.post-nav__preview {
-  display: none; position: absolute; z-index: 10;
-  bottom: calc(100% + 0.5rem); left: 0; width: 18rem;
-  background: #fff; border: 1px solid var(--rule); border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(64, 55, 42, 0.15); overflow: hidden;
-  text-align: left; align-items: stretch;
-}
-.post-nav__item--next .post-nav__preview { left: auto; right: 0; }
-.post-nav__item:hover .post-nav__preview { display: flex; flex-direction: column; }
-.post-nav__img { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
-.post-nav__img img { width: 100%; height: 100%; object-fit: cover; }
-.post-nav__info { padding: 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.4rem; }
-.post-nav__cat {
-  font-family: var(--font-sans); font-size: 0.68rem; text-transform: uppercase;
-  letter-spacing: 0.1em; font-weight: 500; color: var(--tc, var(--accent));
-}
-.post-nav__excerpt {
-  font-family: var(--font-serif); font-size: var(--step--1); color: var(--ink-soft);
-  line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical; overflow: hidden;
+@media (min-width: 75rem) {
+  .post-nav { display: block; }
+  .post-nav__item {
+    position: fixed; top: 50%; transform: translateY(-50%); z-index: 40;
+    display: flex; align-items: stretch; max-width: 3.4rem; overflow: hidden;
+    background: #fff; border: 1px solid var(--rule-strong);
+    box-shadow: 0 6px 24px rgba(64, 55, 42, 0.12); text-decoration: none;
+    color: var(--ink); transition: max-width 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .post-nav__item--prev { left: 0; border-radius: 0 12px 12px 0; }
+  .post-nav__item--next { right: 0; border-radius: 12px 0 0 12px; flex-direction: row-reverse; }
+  .post-nav__item:hover { max-width: 24rem; }
+
+  .post-nav__arrow {
+    flex: none; width: 3.4rem; align-self: center; text-align: center;
+    font-family: var(--font-display); font-size: 1.8rem; line-height: 1;
+    color: var(--accent-ink); transition: color 0.2s ease;
+  }
+  .post-nav__item:hover .post-nav__arrow { color: var(--accent); }
+
+  .post-nav__panel { display: flex; align-items: stretch; width: 20.6rem; }
+  .post-nav__img { flex: none; width: 6.5rem; overflow: hidden; }
+  .post-nav__img img { width: 100%; height: 100%; object-fit: cover; }
+  .post-nav__info {
+    display: flex; flex-direction: column; justify-content: center; gap: 0.3rem;
+    padding: 0.9rem 1rem; min-width: 0;
+  }
+  .post-nav__item--next .post-nav__info { text-align: right; }
+  .post-nav__label {
+    font-family: var(--font-sans); font-size: 0.64rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--muted); font-weight: 500;
+  }
+  .post-nav__title {
+    font-family: var(--font-serif); font-weight: 500; font-size: 0.92rem;
+    line-height: 1.28; letter-spacing: -0.01em; color: var(--ink);
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .post-nav__item:hover .post-nav__title { color: var(--accent); }
+  .post-nav__cat {
+    font-family: var(--font-sans); font-size: 0.62rem; text-transform: uppercase;
+    letter-spacing: 0.1em; font-weight: 500; color: var(--tc, var(--accent));
+  }
 }
 
 /* The prose column — the heart of the reading experience. */
@@ -608,8 +608,6 @@ a:hover { text-decoration-color: currentColor; }
   .themes-strip .u-arrow { grid-column: 1; }
   .home-hero { grid-template-columns: 1fr; gap: 1.5rem; }
   .home-grid { grid-template-columns: 1fr; }
-  .post-nav { grid-template-columns: 1fr; }
-  .post-nav__preview { display: none !important; }
   .site-footer__top { grid-template-columns: 1fr 1fr; }
 }
 
