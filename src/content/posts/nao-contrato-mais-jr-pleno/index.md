@@ -1,6 +1,8 @@
 ---
 title: "Não contrato mais jr/pleno"
 categories: ["IA", "Carreira"]
+cover: "capa.png"
+coverAlt: "Não contrato mais jr/pleno"
 ---
 
 “Com IA, não precisaremos mais de devs juniors.”

@@ -1,10 +1,10 @@
 ---
 title: "Que tipo de dev você será em 2025"
 categories: ["Carreira"]
+cover: "capa.png"
+coverAlt: "Que tipo de dev você será em 2025"
 ---
 
-**Que tipo de dev você será em 2025?
-**
 Se você ainda acredita no mito do “dev herói” – aquele que resolve tudo sozinho, enquanto o time assiste e aplaude como se fosse um salvador – vamos falar de 2025.
 
 O livro *Staff Engineer: Leadership Beyond the Management Track* traz uma recomendação brilhante:

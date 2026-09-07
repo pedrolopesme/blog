@@ -1,6 +1,8 @@
 ---
 title: "Ser excelente não é suficiente"
 categories: ["Carreira"]
+cover: "capa.png"
+coverAlt: "Ser excelente não é suficiente"
 ---
 
 É hora de tocar em uma ferida de muitos devs.

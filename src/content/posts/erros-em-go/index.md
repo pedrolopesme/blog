@@ -1,6 +1,8 @@
 ---
 title: "Erros em Go"
 categories: ["Go", "Ofício"]
+cover: "capa.png"
+coverAlt: "Erros em Go"
 ---
 
 O tratamento de erros em Go define sua a relação com a linguagem logo no primeiro dia.

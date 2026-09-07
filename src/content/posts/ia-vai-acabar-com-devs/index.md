@@ -1,6 +1,8 @@
 ---
 title: "IA vai acabar com devs"
 categories: ["IA", "Carreira"]
+cover: "capa.png"
+coverAlt: "IA vai acabar com devs"
 ---
 
 “Com a IA, vamos precisar de menos devs.”

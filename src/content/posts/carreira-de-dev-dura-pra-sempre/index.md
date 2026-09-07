@@ -1,6 +1,8 @@
 ---
 title: "Carreira de dev dura pra sempre"
 categories: ["Carreira"]
+cover: "capa.png"
+coverAlt: "Carreira de dev dura pra sempre"
 ---
 
 Quantos desenvolvedores com cabelos brancos (ou sem cabelo algum) você conhece?

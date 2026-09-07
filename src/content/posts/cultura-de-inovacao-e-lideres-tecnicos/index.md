@@ -1,6 +1,8 @@
 ---
 title: "Cultura de inovação e Líderes Técnicos"
 categories: ["Cultura", "Carreira"]
+cover: "capa.png"
+coverAlt: "Cultura de inovação e Líderes Técnicos"
 ---
 
 Inovação não é sobre código. É sobre cultura.

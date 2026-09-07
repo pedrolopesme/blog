@@ -1,10 +1,10 @@
 ---
 title: "Home office não é sobre trabalhar na cafeteria"
 categories: ["Carreira", "Cultura"]
+cover: "capa.png"
+coverAlt: "Home office não é sobre trabalhar na cafeteria"
 ---
 
-**Home office não é sobre trabalhar na cafeteria.
-**
 Completei cinco anos participando de equipes remotas. E posso dizer que o home office trouxe para minha vida algo que vai muito além do trabalho.
 
 **Tempo.**

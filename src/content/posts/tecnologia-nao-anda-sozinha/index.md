@@ -1,6 +1,8 @@
 ---
 title: "Tecnologia não anda sozinha"
 categories: ["Cultura"]
+cover: "capa.png"
+coverAlt: "Tecnologia não anda sozinha"
 ---
 
 Facilitar a evolução do Dev Júnior até virar Sênior deve ser  uma questão estratégica para os times.

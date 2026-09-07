@@ -1,6 +1,8 @@
 ---
 title: "Não seja assim"
 categories: ["Carreira"]
+cover: "capa.png"
+coverAlt: "Não seja assim"
 ---
 
 Há mais de uma década, participo das etapas técnicas do processo seletivo nas empresas por onde passei.

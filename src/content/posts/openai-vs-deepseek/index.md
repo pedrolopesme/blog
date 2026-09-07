@@ -1,9 +1,11 @@
 ---
 title: "OpenAI vs DeepSeek"
 categories: ["IA"]
+cover: "capa.png"
+coverAlt: "OpenAI vs DeepSeek"
 ---
 
-**OpenAI, **DeepSeek** e um detalhe de US\\$ 500 Bilhões**
+**OpenAI, **DeepSeek** e um detalhe de US 500 Bilhões**
 
 Os modelos open source da DeepSeek estão superando os da OpenAI.
 

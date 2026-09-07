@@ -1,6 +1,8 @@
 ---
 title: "O Mito do Débito Técnico"
 categories: ["Ofício"]
+cover: "capa.png"
+coverAlt: "O Mito do Débito Técnico"
 ---
 
 Débito técnico já foi um termo útil. Agora, virou um conceito vago.

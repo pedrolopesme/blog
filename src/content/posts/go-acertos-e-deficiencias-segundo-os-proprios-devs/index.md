@@ -1,6 +1,8 @@
 ---
 title: "Go: acertos e deficiências, segundo os próprios devs"
 categories: ["Go"]
+cover: "capa.png"
+coverAlt: "Go: acertos e deficiências, segundo os próprios devs"
 ---
 
 **Go: acertos e deficiências, segundo os próprios devs.**
