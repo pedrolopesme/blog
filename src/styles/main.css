@@ -24,20 +24,19 @@ a { color: inherit; }
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* Dark, gilded palette — near-black ground, warm gold accent.
-     (Inspired by the moody, gold-framed elegance of concert-poster
-     typography: dark stage, single warm light.) */
-  --paper:   #110f0b;
-  --surface: #18150f;
-  --ink:     #f1ead9;
-  --ink-soft:#cabfa8;
-  --muted:   #96896e;
-  --faint:   #675c44;
-  --rule:    #2b2618;
-  --rule-strong: #3c3420;
-  --accent:  #cda15b;   /* warm gold */
-  --accent-ink: #e6c17e;
-  --highlight: #2c2410;
+  /* Light sepia palette — warm cream paper, soft sepia-brown ink,
+     a readable bronze accent. Calm and easy on the eyes. */
+  --paper:   #f6eed9;
+  --surface: #fbf5e6;
+  --ink:     #40372a;
+  --ink-soft:#5e5340;
+  --muted:   #8a7c63;
+  --faint:   #b2a482;
+  --rule:    #e4d8bc;
+  --rule-strong: #d3c5a1;
+  --accent:  #9c6a2c;   /* warm bronze */
+  --accent-ink: #7f5320;
+  --highlight: #ece0be;
 
   --measure: 40rem;        /* ideal line length for prose */
   --wide: 72rem;           /* header / grids */
@@ -54,7 +53,7 @@ a { color: inherit; }
   --leading-tight: 1.18;
 
   --radius: 3px;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 14px 34px rgba(0, 0, 0, 0.5);
+  --shadow: 0 1px 2px rgba(64, 55, 42, 0.06), 0 10px 28px rgba(64, 55, 42, 0.09);
 }
 
 /* ---------- 3. Base typography ----------------------------------------- */
