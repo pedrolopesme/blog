@@ -345,6 +345,38 @@ a:hover { text-decoration-color: currentColor; }
   justify-content: center; align-items: center; gap: 0.5ch;
 }
 
+/* Post quote — literature highlight */
+.post-quote {
+  max-width: var(--measure); margin: clamp(3rem, 7vw, 5rem) auto 0;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--surface); border-radius: var(--radius);
+  border: 1px solid var(--rule); border-left: 3px solid var(--accent);
+  position: relative;
+}
+.post-quote::before {
+  content: "\201C"; position: absolute; top: -0.15em; left: 0.6rem;
+  font-family: var(--font-display); font-size: 4rem; line-height: 1;
+  color: var(--rule-strong); opacity: 0.5; pointer-events: none;
+}
+.post-quote__text {
+  font-family: var(--font-serif); font-size: var(--step-1); font-style: italic;
+  font-weight: 400; color: var(--ink); line-height: 1.6; border: 0; padding: 0;
+  margin: 0; text-indent: 0;
+}
+.post-quote__source { margin-top: 1.2rem; }
+.post-quote__character {
+  font-family: var(--font-sans); font-size: 0.82rem; font-weight: 600;
+  font-style: normal; color: var(--ink); letter-spacing: 0.02em;
+}
+.post-quote__context {
+  font-family: var(--font-serif); font-size: var(--step--1); color: var(--ink-soft);
+  line-height: 1.55; margin-top: 0.4rem; font-style: normal;
+}
+.post-quote__book {
+  font-family: var(--font-sans); font-size: 0.72rem; color: var(--muted);
+  letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.6rem;
+}
+
 .post-footer { max-width: var(--measure); margin: clamp(3rem, 7vw, 5rem) auto 0;
   padding-top: 1.6rem; border-top: 1px solid var(--rule); }
 

@@ -1,0 +1,128 @@
+{
+  "anti-patterns-de-performance": {
+    "quote": "É um erro capital teorizar antes de ter dados. Inadvertidamente, começa-se a torturar os fatos para que se ajustem às teorias, em vez de ajustar as teorias aos fatos.",
+    "character": "Sherlock Holmes",
+    "context": "Ao investigar um caso, Holmes adverte Watson sobre o perigo de tirar conclusões antes de analisar as evidências.",
+    "book": "Escândalo na Boêmia",
+    "author": "Arthur Conan Doyle"
+  },
+  "carreira-de-dev-dura-pra-sempre": {
+    "quote": "Não importa para onde você vá, lá está você.",
+    "character": "Bilbo Bolseiro",
+    "context": "Bilbo reflete sobre como, por mais que tentemos escapar de nós mesmos, carregamos quem somos para onde quer que vamos.",
+    "book": "O Hobbit",
+    "author": "J.R.R. Tolkien"
+  },
+  "cultura-de-inovacao-e-lideres-tecnicos": {
+    "quote": "Nunca julgue antes de conhecer. O mundo está cheio de pessoas que não tentam entender nada antes de condenar.",
+    "character": "Atticus Finch",
+    "context": "Atticus ensina seus filhos a não formarem opiniões precipitadas sobre os outros antes de se colocarem no lugar deles.",
+    "book": "O Sol é para Todos",
+    "author": "Harper Lee"
+  },
+  "erros-em-go": {
+    "quote": "É preciso muito mais coragem para se decidir pelo que é certo do que para se evitar o que é errado. A omissão é tão condenável quanto a ação desastrosa.",
+    "character": "Dumbledore",
+    "context": "Dumbledore alerta Harry sobre a tentação de evitar decisões difíceis, reforçando que a responsabilidade exige ação, não omissão.",
+    "book": "Harry Potter e o Cálice de Fogo",
+    "author": "J.K. Rowling"
+  },
+  "gestores-engenharia-codigo": {
+    "quote": "Os homens desejam não ser informados de que, com o poder de fazer, vem o poder de fazer mal.",
+    "character": "Prospero",
+    "context": "Prospero reconhece que todo poder — inclusive o poder técnico — carrega consigo a responsabilidade por seu uso.",
+    "book": "A Tempestade",
+    "author": "William Shakespeare"
+  },
+  "go-1-24-go-tool-weak-pointers-e-outros": {
+    "quote": "A antiga sabedoria renova as almas dos que a buscam, e descobrem-na aqueles que têm olhos para ver.",
+    "character": "Gandalf",
+    "context": "Gandalf lembra que mesmo as ferramentas mais antigas guardam valor — basta saber onde olhar.",
+    "book": "O Senhor dos Anéis: A Sociedade do Anel",
+    "author": "J.R.R. Tolkien"
+  },
+  "go-acertos-e-deficiencias-segundo-os-proprios-devs": {
+    "quote": "Toda a glória que busquei na minha carreira, busquei para que se sentissem orgulhosos de mim. Os maiores guerreiros são aqueles que lutam por aquilo que amam.",
+    "character": "Heitor",
+    "context": "Heitor fala sobre como a verdadeira excelência nasce do compromisso com algo maior do que si mesmo.",
+    "book": "Ilíada",
+    "author": "Homero"
+  },
+  "home-office-nao-e-sobre-trabalhar-na-cafeteria": {
+    "quote": "Que festeiro gosta de ser interrompido no meio da festa?",
+    "character": "Bilbo Bolseiro",
+    "context": "Bilbo defende seu direito à tranquilidade e ao controle do próprio espaço — algo que todo profissional remoto compreende.",
+    "book": "O Senhor dos Anéis: A Sociedade do Anel",
+    "author": "J.R.R. Tolkien"
+  },
+  "ia-vai-acabar-com-devs": {
+    "quote": "O homem que move uma montanha começa carregando pequenas pedras.",
+    "character": "Confúcio",
+    "context": "A sabedoria de Confúcio lembra que grandes transformações acontecem por acumulação de esforço, não por soluções mágicas.",
+    "book": "Analectos",
+    "author": "Confúcio"
+  },
+  "nao-contrato-mais-jr-pleno": {
+    "quote": "Mesmo as menores pessoas podem mudar o curso do futuro.",
+    "character": "Galadriel",
+    "context": "Galadriel lembra que não se deve subestimar o potencial de quem está no início da jornada.",
+    "book": "O Senhor dos Anéis: A Sociedade do Anel",
+    "author": "J.R.R. Tolkien"
+  },
+  "nao-seja-assim": {
+    "quote": "Para um homem de verdade, a verdadeira riqueza é a sua reputação. Quem a perde, perde tudo.",
+    "character": "Dom Quixote",
+    "context": "Dom Quixote defende que o valor de uma pessoa não está em aparências, mas em sua conduta e caráter reais.",
+    "book": "Dom Quixote de la Mancha",
+    "author": "Miguel de Cervantes"
+  },
+  "o-for-loop-mais-rapido-e-o-benchmark-do-senso-critico": {
+    "quote": "Existem três tipos de mentiras: mentiras, mentiras deslavadas e estatísticas.",
+    "character": "Benjamin Disraeli",
+    "context": "A famosa frase, atribuída ao estadista, alerta sobre como números podem ser usados para enganar quando脱离上下文.",
+    "book": "Citação popular atribuída a Benjamin Disraeli",
+    "author": "Benjamin Disraeli"
+  },
+  "o-mito-do-debito-tecnico": {
+    "quote": "A culpa, caro Bruto, não está nas estrelas, mas em nós mesmos, que somos subordinados.",
+    "character": "Cássio",
+    "context": "Cássio argumenta que os problemas não vêm de forças externas, mas das nossas próprias escolhas e omissões.",
+    "book": "Júlio César",
+    "author": "William Shakespeare"
+  },
+  "o-mito-do-dev-10x": {
+    "quote": "A felicidade só é real quando é compartilhada.",
+    "character": "Christopher McCandless",
+    "context": "McCandless descobre, após anos de busca solitária, que realizações individuais perdem sentido sem alguém para dividir.",
+    "book": "Na Natureza Selvagem",
+    "author": "Jon Krakauer"
+  },
+  "openai-vs-deepseek": {
+    "quote": "O príncipe deve ter como objetivo ser temido sem ser odiado. Para tanto, basta não tocar nos bens e nas mulheres dos cidadãos.",
+    "character": "Maquiavel",
+    "context": "Maquiavel ensina que o poder sustentável se constrói com inteligência, não só com recursos — um conselho que gigantes bilionárias deveriam ouvir.",
+    "book": "O Príncipe",
+    "author": "Nicolau Maquiavel"
+  },
+  "que-tipo-de-dev-voce-sera-em-2025": {
+    "quote": "O homem que se conhece a si mesmo não terá medo de ouvir o que as vozes dizem.",
+    "character": "Gandalf",
+    "context": "Gandalf alerta que quem entende suas forças e fraquezas pode navegar qualquer tempestade.",
+    "book": "O Senhor dos Anéis: A Sociedade do Anel",
+    "author": "J.R.R. Tolkien"
+  },
+  "ser-excelente-nao-e-suficiente": {
+    "quote": "Conhece-te a ti mesmo, e conhecerás o universo e os deuses.",
+    "character": "Inscrição no Templo de Apolo em Delfos",
+    "context": "O antigo provérbio grego, citado por Sócrates, lembra que o autoconhecimento é o primeiro passo para qualquer conquista.",
+    "book": "Axioma de Delfos, citado por Sócrates",
+    "author": "Sabedoria Grega Antiga"
+  },
+  "tecnologia-nao-anda-sozinha": {
+    "quote": "Tudo o que temos de decidir é o que fazer com o tempo que nos é dado.",
+    "character": "Gandalf",
+    "context": "Gandalf responde a Frodo, que lamenta ter vivido para ver tempos tão sombrios. A escolha de como usar o tempo é sempre nossa.",
+    "book": "O Senhor dos Anéis: A Sociedade do Anel",
+    "author": "J.R.R. Tolkien"
+  }
+}

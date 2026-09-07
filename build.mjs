@@ -52,6 +52,12 @@ const SRC = path.join(ROOT, "src");
 const CONTENT = path.join(SRC, "content");
 const OUT = path.join(ROOT, "dist");
 
+const QUOTES_PATH = path.join(SRC, "quotes.json");
+let QUOTES = {};
+try {
+  QUOTES = JSON.parse(await fs.readFile(QUOTES_PATH, "utf8"));
+} catch { /* no quotes file yet */ }
+
 const INCLUDE_DRAFTS = /^(1|true|yes)$/i.test(process.env.INCLUDE_DRAFTS || "");
 
 const md = createMarkdown();
@@ -267,6 +273,7 @@ async function renderPosts(posts) {
     const related = relatedPosts(post, posts);
     const prev = i < posts.length - 1 ? posts[i + 1] : null;
     const next = i > 0 ? posts[i - 1] : null;
+    const quote = QUOTES[post.slug] || null;
     const html = layout(ctx, {
       title: post.title,
       description: post.summary,
@@ -274,7 +281,7 @@ async function renderPosts(posts) {
       head: extraHead(post),
       canonicalPath: post.url,
       ogImage: post.ogImage ? withBase(site.baseUrl, post.ogImage) : undefined,
-      main: articleMain(ctx, post, related, prev, next),
+      main: articleMain(ctx, post, related, prev, next, quote),
     });
     await writeFile(path.join(outDir, "index.html"), html);
   }
