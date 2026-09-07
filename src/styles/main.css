@@ -598,6 +598,41 @@ a:hover { text-decoration-color: currentColor; }
   color: var(--accent-ink);
 }
 
+
+/* Kindle-style text highlights + hover toolbar */
+mark.hl {
+  background: #ffe27a; color: inherit; border-radius: 2px;
+  padding: 0.02em 0; cursor: pointer;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  transition: background 0.2s ease;
+}
+mark.hl[data-color="yellow"] { background: #ffe27a; }
+mark.hl[data-color="pink"]   { background: #f7b3c2; }
+mark.hl[data-color="blue"]   { background: #a9d2f0; }
+mark.hl[data-color="green"]  { background: #b9e0a6; }
+
+.hl-toolbar {
+  position: fixed; z-index: 80; display: none; align-items: center; gap: 0.45rem;
+  padding: 0.4rem 0.55rem; background: #fff; border: 1px solid var(--rule-strong);
+  border-radius: 100px; box-shadow: 0 6px 22px rgba(64, 55, 42, 0.18);
+}
+.hl-toolbar.is-open { display: flex; }
+.hl-swatch {
+  width: 1.15rem; height: 1.15rem; border-radius: 50%; cursor: pointer;
+  border: 1px solid rgba(64, 55, 42, 0.25); padding: 0;
+  transition: transform 0.15s ease;
+}
+.hl-swatch:hover { transform: scale(1.15); }
+.hl-swatch--yellow { background: #ffe27a; }
+.hl-swatch--pink   { background: #f7b3c2; }
+.hl-swatch--blue   { background: #a9d2f0; }
+.hl-swatch--green  { background: #b9e0a6; }
+.hl-remove {
+  width: 1.35rem; height: 1.35rem; border: 0; background: none; cursor: pointer;
+  color: var(--muted); font-size: 0.8rem; line-height: 1; border-radius: 50%;
+  margin-left: 0.15rem; border-left: 1px solid var(--rule); padding-left: 0.5rem;
+}
+.hl-remove:hover { color: var(--accent-ink); }
 /* ---------- 8. Reusable content components ------------------------------ */
 /* Callout / aside boxes. Variants via modifier classes. */
 .callout { background: var(--surface); border: 1px solid var(--rule);
