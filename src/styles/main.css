@@ -472,21 +472,14 @@ a:hover { text-decoration-color: currentColor; }
   .post-nav__item--prev { left: 0; }
   .post-nav__item--next { right: 0; }
 
-  /* Collapsed state: elegant vertical serif word */
+  /* Collapsed state: plain elegant vertical serif word */
   .post-nav__spine {
     display: block; writing-mode: vertical-rl;
-    font-family: var(--font-display); font-weight: 400; font-style: italic;
-    font-size: 0.9rem; letter-spacing: 0.14em; color: var(--ink-soft);
-    padding: 1rem 0.55rem; background: rgba(250, 247, 240, 0.72);
-    backdrop-filter: blur(3px); border: 1px solid var(--rule);
-    transition: color 0.25s ease;
+    font-family: var(--font-display); font-weight: 600; font-style: normal;
+    font-size: 1.2rem; letter-spacing: 0.06em; color: var(--ink-soft);
+    padding: 0.6rem 0.75rem; transition: color 0.25s ease;
   }
-  .post-nav__item--prev .post-nav__spine {
-    transform: rotate(180deg); border-left: none; border-radius: 0 10px 10px 0;
-  }
-  .post-nav__item--next .post-nav__spine {
-    border-right: none; border-radius: 10px 0 0 10px;
-  }
+  .post-nav__item--prev .post-nav__spine { transform: rotate(180deg); }
   .post-nav__item:hover .post-nav__spine { color: var(--accent); }
 
   /* Hover preview: fades in (no slide) */
