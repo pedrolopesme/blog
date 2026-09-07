@@ -73,6 +73,7 @@ async function main() {
   const posts = await loadPosts();
   const pages = await loadPages();
   const categories = collectCategories(posts);
+  ctx.categories = categories;
 
   await renderPosts(posts);
   await renderPages(pages);
