@@ -100,21 +100,35 @@ a:hover { text-decoration-color: currentColor; }
 
 /* ---------- 5. Header & footer ----------------------------------------- */
 .site-header {
-  border-bottom: 1px solid var(--rule); background: var(--surface); position: relative;
+  border-bottom: 3px double var(--rule-strong); background: var(--surface); position: relative;
 }
 .site-header::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent) 45%, var(--accent) 55%, transparent);
-  opacity: 0.6;
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent-ink), var(--accent) 50%, var(--accent-ink));
 }
 .site-header__inner {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 1.5rem; padding-block: clamp(1.1rem, 3vw, 1.9rem); flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; padding-block: clamp(1.1rem, 3vw, 1.7rem); flex-wrap: wrap;
 }
-.site-header__brand { text-decoration: none; display: grid; gap: 0.15rem; }
+.site-header__brand { text-decoration: none; display: flex; align-items: center; gap: 0.85rem; }
+.site-header__mark {
+  flex: none; width: 2.75rem; height: 2.75rem; border-radius: 9px;
+  background: linear-gradient(150deg, var(--accent), var(--accent-ink));
+  color: #fbf5e6; font-family: var(--font-display); font-weight: 700;
+  font-size: 1.12rem; letter-spacing: 0.02em; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(124, 83, 32, 0.28); position: relative; overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.site-header__mark::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.38), transparent 46%);
+}
+.site-header__brand:hover .site-header__mark { transform: translateY(-1px) rotate(-2deg); }
+.site-header__word { display: grid; gap: 0.12rem; }
 .site-header__title {
   font-family: var(--font-display); font-weight: 700; font-size: var(--step-2);
-  color: var(--ink); letter-spacing: -0.02em; font-variation-settings: "opsz" 72, "SOFT" 20;
+  color: var(--ink); letter-spacing: -0.015em; font-variation-settings: "opsz" 72, "SOFT" 20; line-height: 1;
 }
 .site-header__tagline {
   font-size: var(--step--1); color: var(--muted); font-style: italic;

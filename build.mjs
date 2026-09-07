@@ -70,7 +70,7 @@ async function main() {
 
   await renderPosts(posts);
   await renderPages(pages);
-  await renderHome(posts, categories);
+  await renderHome(posts);
   await renderPostsIndex(posts);
   await renderCategories(categories, posts);
   await renderFeed(posts);
@@ -290,19 +290,12 @@ async function renderPages(pages) {
   }
 }
 
-async function renderHome(posts, categories) {
-  const homeFile = await firstExisting(CONTENT, ["home.md", "home.html"]);
-  let intro = "";
-  if (homeFile) {
-    const raw = await fs.readFile(homeFile, "utf8");
-    const { content } = matter(raw);
-    intro = /\.html?$/i.test(homeFile) ? content : md.render(content);
-  }
+async function renderHome(posts) {
   const html = layout(ctx, {
     title: "",
     bodyClass: "is-home",
     canonicalPath: "/",
-    main: homeMain(ctx, { posts, intro, categories }),
+    main: homeMain(ctx, { posts }),
   });
   await writeFile(path.join(OUT, "index.html"), html);
 }
