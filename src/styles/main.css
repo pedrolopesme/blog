@@ -26,8 +26,8 @@ a { color: inherit; }
 
   /* Light sepia palette — warm cream paper, soft sepia-brown ink,
      a readable bronze accent. Calm and easy on the eyes. */
-  --paper:   #f6eed9;
-  --surface: #fbf5e6;
+  --paper:   #f1e4c6;
+  --surface: #f8efd7;
   --ink:     #40372a;
   --ink-soft:#5e5340;
   --muted:   #8a7c63;
