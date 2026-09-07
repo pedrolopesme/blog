@@ -711,6 +711,7 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
 
 /* ---------- 10. Responsive & dark -------------------------------------- */
 @media (max-width: 40rem) {
+  .site-header { position: sticky; top: 0; z-index: 55; }
   .site-header__inner {
     flex-direction: row; align-items: center; justify-content: center;
     text-align: center; gap: 0.9rem; position: relative; min-height: 2.6rem;
@@ -718,7 +719,7 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   .site-header__brand { flex-direction: row; gap: 0.6rem; position: relative; z-index: 60; }
   .site-header__title { display: none; }
   .site-header__toggle {
-    display: block; position: fixed; top: 0.85rem; right: var(--gutter); z-index: 60;
+    display: block; position: absolute; top: 50%; right: 0; transform: translateY(-50%); z-index: 60;
   }
   .nav-open .site-header__burger, .nav-open .site-header__burger::before,
   .nav-open .site-header__burger::after { background: var(--ink); }
