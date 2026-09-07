@@ -480,8 +480,9 @@ a:hover { text-decoration-color: currentColor; }
 
 /* Drop cap — first paragraph of post automatically */
 .is-post .prose > p:first-of-type::first-letter {
-  font-family: var(--font-display); font-weight: 700; float: left; line-height: 0.72;
-  font-size: 3.6em; padding-right: 0.08em; margin-top: 0.06em; color: var(--accent-ink);
+  font-family: var(--font-display); font-weight: 700; float: left;
+  line-height: 0.8; font-size: 3.2em; padding-right: 0.06em; margin-top: 0.05em;
+  color: var(--accent-ink);
 }
 
 /* ---------- 8. Reusable content components ------------------------------ */
