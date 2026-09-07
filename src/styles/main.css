@@ -692,24 +692,39 @@ a:hover { text-decoration-color: currentColor; }
 /* ---------- 10. Responsive & dark -------------------------------------- */
 @media (max-width: 40rem) {
   .site-header__inner {
-    flex-direction: column; align-items: center; text-align: center;
-    gap: 0.9rem; position: relative;
+    flex-direction: row; align-items: center; justify-content: center;
+    text-align: center; gap: 0.9rem; position: relative; min-height: 2.6rem;
   }
-  .site-header__brand { flex-direction: column; gap: 0.5rem; }
+  .site-header__brand { flex-direction: row; gap: 0.6rem; }
+  .site-header__title { display: none; }
   .site-header__toggle {
-    display: block; position: absolute; top: 0.4rem; right: 0;
+    display: block; position: fixed; top: 0.85rem; right: var(--gutter); z-index: 60;
   }
+  .nav-open .site-header__burger, .nav-open .site-header__burger::before,
+  .nav-open .site-header__burger::after { background: var(--ink); }
+  .nav-open .site-header__burger { background: transparent; }
+
+  /* Overlay menu — white sheet that expands gracefully over the page */
   .site-nav {
-    display: grid; grid-template-rows: 0fr; width: 100%;
-    transition: grid-template-rows 0.32s ease;
+    position: fixed; inset: 0; z-index: 50; width: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: #fff;
+    opacity: 0; visibility: hidden;
+    clip-path: circle(0% at calc(100% - 2.2rem) 2.2rem);
+    transition: clip-path 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, visibility 0.5s;
   }
-  .nav-open .site-nav { grid-template-rows: 1fr; }
+  .nav-open .site-nav {
+    opacity: 1; visibility: visible;
+    clip-path: circle(150% at calc(100% - 2.2rem) 2.2rem);
+  }
   .site-nav ul {
-    overflow: hidden; flex-direction: column; align-items: center; gap: 0;
-    min-height: 0;
+    flex-direction: column; align-items: center; gap: 0; width: 100%;
+    opacity: 0; transform: translateY(8px); transition: opacity 0.3s ease 0.12s, transform 0.35s ease 0.12s;
   }
-  .nav-open .site-nav ul { padding-top: 0.4rem; }
-  .site-nav li { padding: 0.55rem 0; }
+  .nav-open .site-nav ul { opacity: 1; transform: none; }
+  .site-nav li { padding: 0.9rem 0; }
+  .site-nav a { font-family: var(--font-display); font-size: var(--step-2);
+    text-transform: none; letter-spacing: -0.01em; font-weight: 500; border-bottom: 0; }
   .post-title { font-size: var(--step-3); }
   .mag-grid { grid-template-columns: 1fr; }
   .article-block--lead:has(.article-block__art) { grid-template-columns: 1fr; gap: 1rem; }
