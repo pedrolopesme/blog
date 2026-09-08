@@ -1,5 +1,6 @@
 ---
 title: "Go: acertos e deficiências, segundo os próprios devs"
+summary: "O que a pesquisa oficial revela sobre satisfação, limites de abstração e o uso de IA entre quem escreve Go."
 categories: ["Go"]
 cover: "capa.webp"
 coverAlt: "Go: acertos e deficiências, segundo os próprios devs"

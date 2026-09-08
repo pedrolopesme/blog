@@ -1,5 +1,6 @@
 ---
 title: "Não seja assim"
+summary: "Reduzir o processo seletivo ao GitHub do candidato ignora quem nunca teve o privilégio do tempo livre."
 categories: ["Carreira"]
 cover: "capa.webp"
 coverAlt: "Não seja assim"

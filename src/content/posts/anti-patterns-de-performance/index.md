@@ -1,5 +1,6 @@
 ---
 title: "Anti-Patterns de Performance"
+summary: "Deixar performance para o fim, medir o que não importa e confiar em atalhos: as armadilhas que insistimos em repetir."
 categories: ["Ofício"]
 cover: "capa.webp"
 coverAlt: "Anti-Patterns de Performance"

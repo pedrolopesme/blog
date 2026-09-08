@@ -1,5 +1,6 @@
 ---
 title: "IA vai acabar com devs"
+summary: "Se produzir software fica mais barato, a demanda explode — e alguém precisa liderar, adaptar e ajustar tudo isso."
 categories: ["IA", "Carreira"]
 cover: "capa.webp"
 coverAlt: "IA vai acabar com devs"

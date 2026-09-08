@@ -1,5 +1,6 @@
 ---
 title: "Tecnologia não anda sozinha"
+summary: "Formar sêniores exige cultura e paciência; nenhuma IA atalha a experiência que se ganha resolvendo problemas reais."
 categories: ["Cultura"]
 cover: "capa.webp"
 coverAlt: "Tecnologia não anda sozinha"

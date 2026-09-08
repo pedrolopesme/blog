@@ -1,5 +1,6 @@
 ---
 title: "OpenAI vs DeepSeek"
+summary: "A DeepSeek replicou com 6 milhões o que a OpenAI fez com bilhões — e o timing não poderia ser mais simbólico."
 categories: ["IA"]
 cover: "capa.webp"
 coverAlt: "OpenAI vs DeepSeek"

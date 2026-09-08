@@ -1,5 +1,6 @@
 ---
 title: "Que tipo de dev você será em 2025"
+summary: "O dev herói acabou: o jogo agora é interpretar necessidades, alinhar tradeoffs e ser uma boa influência."
 categories: ["Carreira"]
 cover: "capa.webp"
 coverAlt: "Que tipo de dev você será em 2025"

@@ -1,5 +1,6 @@
 ---
 title: "Cultura de inovação e Líderes Técnicos"
+summary: "Inovação não nasce de decreto técnico: times inovam quando são ouvidos e não punidos por tentar."
 date: 2026-09-07
 categories: ["Cultura", "Carreira"]
 cover: "capa.webp"

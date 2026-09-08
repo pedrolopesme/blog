@@ -1,5 +1,6 @@
 ---
 title: "Go 1.24: go tool, weak pointers e outros"
+summary: "Os destaques do Go 1.24: go tool, weak pointers, Swiss Tables, contextos em testes e outras novidades."
 categories: ["Go"]
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "O for loop mais rápido e o benchmark do senso crítico"
+summary: "Um benchmark viral de for loops mede menos a velocidade das linguagens e mais a pressa com que ignoramos o contexto."
 date: 2026-09-07
 categories: ["Ofício"]
 cover: "capa.webp"

@@ -1,5 +1,6 @@
 ---
 title: "Não contrato mais jr/pleno"
+summary: "Devs sêniores não brotam do nada: parar de contratar júnior é hipotecar o futuro do próprio time."
 categories: ["IA", "Carreira"]
 cover: "capa.webp"
 coverAlt: "Não contrato mais jr/pleno"

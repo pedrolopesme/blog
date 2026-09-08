@@ -1,5 +1,6 @@
 ---
 title: "O Mito do Débito Técnico"
+summary: "Débito técnico virou termo genérico para todo problema não priorizado — e a narrativa esconde o que é cultura."
 categories: ["Ofício"]
 cover: "capa.webp"
 coverAlt: "O Mito do Débito Técnico"

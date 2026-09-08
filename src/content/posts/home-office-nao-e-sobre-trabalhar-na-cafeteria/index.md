@@ -1,5 +1,6 @@
 ---
 title: "Home office não é sobre trabalhar na cafeteria"
+summary: "Cinco anos de trabalho remoto: o ganho real não é o lugar, é o tempo — e a disciplina que ele exige."
 categories: ["Carreira", "Cultura"]
 cover: "capa.webp"
 coverAlt: "Home office não é sobre trabalhar na cafeteria"

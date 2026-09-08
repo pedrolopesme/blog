@@ -1,5 +1,6 @@
 ---
 title: "O Mito do Dev 10x"
+summary: "Software é construção coletiva; medir produtividade individual com uma métrica única é o que sustenta o mito."
 categories: ["Carreira", "Ofício"]
 ---
 

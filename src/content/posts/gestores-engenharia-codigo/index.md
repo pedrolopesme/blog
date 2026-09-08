@@ -1,5 +1,6 @@
 ---
 title: "Será que gestores de engenharia devem se afastar do código?"
+summary: "Gestores de engenharia devem continuar codando? Sobre o equilíbrio entre credibilidade técnica e visão estratégica."
 categories: ["Carreira", "Cultura"]
 cover: "capa.webp"
 coverAlt: "Será que gestores de engenharia devem se afastar do código?"

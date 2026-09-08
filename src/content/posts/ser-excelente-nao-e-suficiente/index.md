@@ -1,5 +1,6 @@
 ---
 title: "Ser excelente não é suficiente"
+summary: "Trabalho duro não fala por si só — visibilidade é a habilidade que ninguém ensina na escola do dev."
 categories: ["Carreira"]
 cover: "capa.webp"
 coverAlt: "Ser excelente não é suficiente"

@@ -1,5 +1,6 @@
 ---
 title: "Erros em Go"
+summary: "Tratar erros como valores é repetitivo, mas obriga a pensar em cada falha — e isso muda a forma de escrever código."
 categories: ["Go", "Ofício"]
 cover: "capa.webp"
 coverAlt: "Erros em Go"

@@ -1,5 +1,6 @@
 ---
 title: "Carreira de dev dura pra sempre"
+summary: "Um mapa das trajetórias possíveis para quem quer seguir como engenheiro de software sem virar gestor por obrigação."
 categories: ["Carreira"]
 cover: "capa.webp"
 coverAlt: "Carreira de dev dura pra sempre"
