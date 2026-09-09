@@ -67,6 +67,16 @@ export default {
     "Cultura": "#9a5bb0",
   },
 
+  // Editorial "kicker" taglines per category, shown in home section headers.
+  // Matched case/accent-insensitively like themeColors.
+  themeKickers: {
+    "Ofício": "Práticas & Filosofia Técnica",
+    "Carreira": "O tempo e a longevidade",
+    "Go": "A simplicidade rigorosa",
+    "IA": "Mitos, modelos e o futuro",
+    "Cultura": "Gente e Organizações",
+  },
+
   // Fallback palette cycled deterministically for themes without an explicit
   // colour above.
   themePalette: [
