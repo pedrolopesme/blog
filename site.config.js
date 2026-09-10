@@ -77,6 +77,11 @@ export default {
     "Cultura": "Gente e Organizações",
   },
 
+  // Editorial running order of the home sections. Listed themes come first,
+  // in this order; anything unlisted follows, newest post first. Position
+  // also picks the section's layout (cards -> list -> feature, rotating).
+  themeOrder: ["Ofício", "Cultura", "Carreira", "Go", "IA"],
+
   // Fallback palette cycled deterministically for themes without an explicit
   // colour above.
   themePalette: [
