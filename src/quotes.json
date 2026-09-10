@@ -124,5 +124,12 @@
     "context": "Gandalf responde a Frodo, que lamenta ter vivido para ver tempos tão sombrios. A escolha de como usar o tempo é sempre nossa.",
     "book": "O Senhor dos Anéis: A Sociedade do Anel",
     "author": "J.R.R. Tolkien"
+  },
+  "anthropic-misuse-ia-2026": {
+    "quote": "As pessoas se dividem em ordinárias e extraordinárias. As ordinárias devem viver na obediência e não têm o direito de transgredir a lei. As extraordinárias têm o direito de cometer qualquer crime e de transgredir a lei como quiserem, pelo simples fato de serem extraordinárias.",
+    "character": "Raskólnikov",
+    "context": "Raskólnikov expõe ao investigador Porfiry a teoria que usou para se autorizar: o obstáculo nunca foi a capacidade de agir, e sim a permissão que ele mesmo se deu.",
+    "book": "Crime e Castigo",
+    "author": "Fiódor Dostoiévski"
   }
 }
