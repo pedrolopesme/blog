@@ -242,9 +242,7 @@ a:hover { text-decoration-color: currentColor; }
 
 /* Home hero — Gazeta Literária style */
 .home-hero {
-  margin-bottom: clamp(3rem, 7vw, 5rem);
-  padding-bottom: clamp(2.5rem, 6vw, 4rem);
-  border-bottom: 1px solid var(--rule);
+  margin-bottom: 0;
 }
 /* Section header bar */
 .home-hero__bar {
