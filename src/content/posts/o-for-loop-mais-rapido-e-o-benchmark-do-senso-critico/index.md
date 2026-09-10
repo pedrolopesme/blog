@@ -8,7 +8,10 @@ coverAlt: "O for loop mais rápido e o benchmark do senso crítico"
 background: "background.webp"
 ---
 
-Fonte: [https://github.com/bddicken/languages](https://github.com/bddicken/languages)
+<aside class="callout">
+<strong>Referência</strong>
+Fonte: <a href="https://github.com/bddicken/languages">https://github.com/bddicken/languages</a>
+</aside>
 
 ***O  for loop mais rápido e o benchmark do senso crítico.***
 
@@ -29,7 +32,6 @@ Tendências de mercado são interessantes, mas não devem guiar cegamente suas d
 
 A obsessão por números isolados ignora a complexidade do desenvolvimento de software. Benchmarks têm valor, mas só quando usados como parte da decisão. Eles não substituem o pensamento crítico que desenvolvedores precisam ter ao avaliar tendências, ferramentas ou tecnologias.
 
-Então, da próxima vez que um gráfico brilhante surgir no seu feed, pergunte-se: como isso realmente resolve o meu problema?
+> Então, da próxima vez que um gráfico brilhante surgir no seu feed, pergunte-se: como isso realmente resolve o meu problema?
 
-🔗 O repo com o trabalho de comparação é [*github.com/bddicken/languages*](https://github.com/bddicken/languages)*.
-*
+🔗 O repo com o trabalho de comparação é [*github.com/bddicken/languages*](https://github.com/bddicken/languages).

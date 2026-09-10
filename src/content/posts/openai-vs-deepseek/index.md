@@ -6,7 +6,7 @@ cover: "capa.webp"
 coverAlt: "OpenAI vs DeepSeek"
 ---
 
-**OpenAI, **DeepSeek** e um detalhe de US 500 Bilhões**
+**OpenAI, DeepSeek e um detalhe de US 500 Bilhões**
 
 Os modelos open source da DeepSeek estão superando os da OpenAI.
 
@@ -30,6 +30,6 @@ Agora, pensa nisso enquanto processa o anúncio de US\\$ 500 bilhões da OpenAI 
 
 Onde esse dinheiro vai parar? Talvez, quando alguém precisa gastar meio trilhão para se manter à frente, é porque não está tão à frente assim. O financiamento pode ser o único caminho que resta para tentar superar os concorrentes.
 
-A grande questão é: será que o modelo open source da DeepSeek pode sair vitorioso nessa batalha?  Ou haverá muitos problemas de confiança associados a uma empresa sediada na China?
+> A grande questão é: será que o modelo open source da DeepSeek pode sair vitorioso nessa batalha?  Ou haverá muitos problemas de confiança associados a uma empresa sediada na China?
 
 Os próximos capítulos dessa novela com certeza serão BEM interessantes.

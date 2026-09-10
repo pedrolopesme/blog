@@ -6,7 +6,7 @@ cover: "capa.webp"
 coverAlt: "Não contrato mais jr/pleno"
 ---
 
-“Com IA, não precisaremos mais de devs juniors.”
+> “Com IA, não precisaremos mais de devs juniors.”
 
 Todos querem equipes de profissionais experientes e autônomos.
 
@@ -38,6 +38,7 @@ O melhor caminho não é a extinção dos juniors, mas sim sua aceleração, **a
 
 A questão-chave será: **o que deve ser automatizado e o que ainda precisa ser aprendido na prática?**
 
-Links
-
-1. [https://www.bain.com/insights/beyond-code-generation-more-efficient-software-development-tech-report-2024](https://www.bain.com/insights/beyond-code-generation-more-efficient-software-development-tech-report-2024)
+<aside class="callout">
+<strong>Referência</strong>
+1. <a href="https://www.bain.com/insights/beyond-code-generation-more-efficient-software-development-tech-report-2024">https://www.bain.com/insights/beyond-code-generation-more-efficient-software-development-tech-report-2024</a>
+</aside>

@@ -10,53 +10,61 @@ A nova versão foca em melhorias na linguagem (**Generic Type Aliases, Weak Poin
 
 Segue alguns destaques:
 
-👉  go tool
+- go tool
 
-Com o go tool, podemos declarar ferramentas diretamente no go.mod, sem precisar recorrer a um arquivo separado (ex: tools.go).
+  Com o go tool, podemos declarar ferramentas diretamente no go.mod, sem precisar recorrer a um arquivo separado (ex: tools.go).
 
-Pra usar, basta adicionar a ferramenta desejada, como:
-go get -tool [github.com/vektra/mockery/v2@v2.52.1](http://github.com/vektra/mockery/v2@v2.52.1)
+  Pra usar, basta adicionar a ferramenta desejada, como:
 
-E para executá-la:
-go tool [github.com/vektra/mockery/v2](http://github.com/vektra/mockery/v2)
+  ```bash
+  go get -tool github.com/vektra/mockery/v2@v2.52.1
+  ```
 
-Há quem ame, há quem odeie. A comunidade de Go é sempre muito dividida.
+  E para executá-la:
 
-Na prática, o go tool será útil para gerenciar o tooling durante o ciclo de desenvolvimento, como geradores de código e linters.
+  ```bash
+  go tool github.com/vektra/mockery/v2
+  ```
 
-O principal risco é de conflitos das dependências. Tem que ficar ligado para não ter dor de cabeça.
+  Há quem ame, há quem odeie. A comunidade de Go é sempre muito dividida.
 
-👉 Aliás de Generic Types
+  Na prática, o go tool será útil para gerenciar o tooling durante o ciclo de desenvolvimento, como geradores de código e linters.
 
-Agora você pode criar atalhos para tipos genéricos, o que ajuda a reduzir redundância e (pode) melhorar a legibilidade do código.
+  O principal risco é de conflitos das dependências. Tem que ficar ligado para não ter dor de cabeça.
 
-Em vez de repetir definições complexas, basta criar um alias e reutilizá-lo. A ref contém exemplos [1].
+- Aliás de Generic Types
 
-👉 Weak pointers
+  Agora você pode criar atalhos para tipos genéricos, o que ajuda a reduzir redundância e (pode) melhorar a legibilidade do código.
 
-Agora é possível referenciar um objeto sem impedir que o garbage collector remova-o quando necessário [2].
+  Em vez de repetir definições complexas, basta criar um alias e reutilizá-lo. A ref contém exemplos [1].
 
-Isso ajuda a manter associações fracas entre estruturas, o que pode ser útil em algumas (poucas) situações. A criação de caches temporários é uma delas.
+- Weak pointers
 
-Porém, ponteiros fracos podem ser um tiro no pé: se o objeto referenciado for coletado pelo GC, ganhamos um nil de presente.
+  Agora é possível referenciar um objeto sem impedir que o garbage collector remova-o quando necessário [2].
 
-A regra aqui é não usar, a não ser que o ganho seja muito claro. Do contrário pode sofrer com panics surpresas.
+  Isso ajuda a manter associações fracas entre estruturas, o que pode ser útil em algumas (poucas) situações. A criação de caches temporários é uma delas.
 
-👉  Outras novidades:
+  Porém, ponteiros fracos podem ser um tiro no pé: se o objeto referenciado for coletado pelo GC, ganhamos um nil de presente.
 
-⚫ Swiss Tables – Mapas mais rápidos e eficientes.
-⚫  Maps mais seguros em cenários de concorrência (e sem mutexes 🙏).
-⚫  Controle de acesso a diretórios por escopo.
-⚫ Test Contexts – Suporte a contextos em testes.
-⚫  Synthetic Time – Simulação de tempo para testes.
-⚫  Refinamento no controle sobre loops em benchmarks.
-⚫  Suporte a novas funções hash no SHA-3 .
-⚫  Melhorias na lib de HTTP – Melhor suporte a HTTP/3.
+  A regra aqui é não usar, a não ser que o ganho seja muito claro. Do contrário pode sofrer com panics surpresas.
+
+- Outras novidades:
+
+  ⚫ Swiss Tables – Mapas mais rápidos e eficientes.
+  ⚫  Maps mais seguros em cenários de concorrência (e sem mutexes 🙏).
+  ⚫  Controle de acesso a diretórios por escopo.
+  ⚫ Test Contexts – Suporte a contextos em testes.
+  ⚫  Synthetic Time – Simulação de tempo para testes.
+  ⚫  Refinamento no controle sobre loops em benchmarks.
+  ⚫  Suporte a novas funções hash no SHA-3 .
+  ⚫  Melhorias na lib de HTTP – Melhor suporte a HTTP/3.
 
 O Anton Zhiyanov fez um excelente trabalho compilando as novidades em seu site [3]. Vale conferir.
 
-Links:
-
-[1] [https://go.dev/ref/spec#Alias_declarations](https://go.dev/ref/spec#Alias_declarations)
-[2] [https://github.com/golang/go/issues/67552](https://github.com/golang/go/issues/67552)
-[3] [https://antonz.org/go-1-24/](https://antonz.org/go-1-24/)
+<aside class="callout">
+<strong>Referência</strong>
+Links:<br>
+[1] <a href="https://go.dev/ref/spec#Alias_declarations">https://go.dev/ref/spec#Alias_declarations</a><br>
+[2] <a href="https://github.com/golang/go/issues/67552">https://github.com/golang/go/issues/67552</a><br>
+[3] <a href="https://antonz.org/go-1-24/">https://antonz.org/go-1-24/</a>
+</aside>

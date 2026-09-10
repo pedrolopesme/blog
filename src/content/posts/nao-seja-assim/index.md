@@ -10,7 +10,7 @@ Há mais de uma década, participo das etapas técnicas do processo seletivo nas
 
 Contratar profissionais é uma arte. É preciso considerar história, experiência e cultura para avaliar o fit do candidato… tudo isso em poucos minutos.
 
-Se você também tem essa responsabilidade, lembre-se: **não reduza o processo seletivo ao perfil no GitHub ou posts no Medium.**
+> Se você também tem essa responsabilidade, lembre-se: **não reduza o processo seletivo ao perfil no GitHub ou posts no Medium.**
 
 Muitos devs não conseguem equilibrar seus estudos fora do expediente com responsabilidades pessoais ou familiares. Nem todos têm o privilégio de tempo livre para se dedicar a projetos paralelos, especialmente em um país como o Brasil.
 

@@ -7,7 +7,7 @@ coverAlt: "Anti-Patterns de Performance"
 background: "background.webp"
 ---
 
-A tecnologia vive de ciclos, e um dos mais frequentes é redescobrir como *não* fazer as coisas.
+> A tecnologia vive de ciclos, e um dos mais frequentes é redescobrir como *não* fazer as coisas.
 
 Lendo o paper chamado *Performance Anti-Patterns [1]*, percebi o quanto estamos sujeitos a cair nas mesmas armadilhas ao tentar otimizar software. É interessante observar como esses erros estão conectados por uma característica comum: a falta de planejamento ou a insistência em atalhos ilusórios.
 
@@ -47,4 +47,7 @@ Começa com decisões inteligentes, métricas bem definidas e uma compreensão c
 
 Afinal, correr mais rápido não ajuda em nada se você está na direção errada.
 
-[1] Paper: [https://queue.acm.org/detail.cfm?id=1117403](https://queue.acm.org/detail.cfm?id=1117403)
+<aside class="callout">
+<strong>Referência</strong>
+[1] Paper: <a href="https://queue.acm.org/detail.cfm?id=1117403">https://queue.acm.org/detail.cfm?id=1117403</a>
+</aside>

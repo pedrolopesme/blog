@@ -20,11 +20,11 @@ Mas, ao mesmo tempo, comecei perceber sentido nesse padrão. Ele me força a pre
 
 O desafio se tornou ainda mais interessante quando você trabalha com paralelismo, uma das forças do Go.
 
-O livro **Concurrency in Go: Tools and Techniques for Developers [2] destaca  isso: **
+O livro **Concurrency in Go: Tools and Techniques for Developers** [2] destaca  isso:
 
-“Em programas concorrentes, o tratamento de erros pode ser especialmente desafiador. Às vezes, passamos tanto tempo pensando em como nossos processos vão compartilhar informações que esquecemos de planejar como eles lidarão com estados de falha. (…) A questão fundamental é: ‘Quem deve ser responsável por lidar com o erro?’ Em algum momento, o programa precisa parar de propagar o erro e, de fato, fazer algo a respeito”
-
-Katherine Cox-Buday. Concurrency in Go: Tools and Techniques for Developers.
+> “Em programas concorrentes, o tratamento de erros pode ser especialmente desafiador. Às vezes, passamos tanto tempo pensando em como nossos processos vão compartilhar informações que esquecemos de planejar como eles lidarão com estados de falha. (…) A questão fundamental é: ‘Quem deve ser responsável por lidar com o erro?’ Em algum momento, o programa precisa parar de propagar o erro e, de fato, fazer algo a respeito”
+>
+> <cite>Katherine Cox-Buday. Concurrency in Go: Tools and Techniques for Developers.</cite>
 
 Essa visão reforça um princípio fundamental do Go: simplicidade e previsibilidade são mais importantes que abstrações sofisticadas.
 
@@ -44,8 +44,9 @@ Hoje, vejo o tratamento de erros em Go como uma parte fundamental da experiênci
 
 Não é glamouroso, e muitas vezes exige paciência, mas é justamente essa abordagem que me lembra que escrever código de qualidade é mais do que resolver problemas técnicos – é sobre assumir a responsabilidade pelo que construo.
 
-Links:
-
-[1] - “**Errors are values” - **[https://go.dev/blog/errors-are-values](https://go.dev/blog/errors-are-values)
-[2] - Concurrency in Go: Tools and Techniques for Developers - [https://amzn.to/42nNKQU](https://amzn.to/42nNKQU)
-[3] -  “proposal: spec: reduce error handling boilerplate using ?“ - [https://github.com/golang/go/issues/71203](https://github.com/golang/go/issues/71203)
+<aside class="callout">
+<strong>Referência</strong>
+[1] - “<strong>Errors are values</strong>” - <a href="https://go.dev/blog/errors-are-values">https://go.dev/blog/errors-are-values</a><br>
+[2] - Concurrency in Go: Tools and Techniques for Developers - <a href="https://amzn.to/42nNKQU">https://amzn.to/42nNKQU</a><br>
+[3] -  “proposal: spec: reduce error handling boilerplate using ?“ - <a href="https://github.com/golang/go/issues/71203">https://github.com/golang/go/issues/71203</a>
+</aside>

@@ -8,7 +8,7 @@ coverAlt: "Cultura de inovação e Líderes Técnicos"
 background: "background.webp"
 ---
 
-Inovação não é sobre código. É sobre cultura.
+> Inovação não é sobre código. É sobre cultura.
 
 Cena clássica: o líder técnico some, volta com uma tecnologia mágica e decreta que, a partir de agora, todos devem usá-la.
 

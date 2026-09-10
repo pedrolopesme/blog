@@ -6,7 +6,7 @@ cover: "capa.webp"
 coverAlt: "IA vai acabar com devs"
 ---
 
-“Com a IA, vamos precisar de menos devs.”
+> “Com a IA, vamos precisar de menos devs.”
 
 Graças a Meta, esse pensamento nunca esteve tão em alta. Mas calma, a realidade não é tão simples assim.
 

@@ -28,4 +28,4 @@ No fundo, não é um questão de onde as pessoas estão, mas como elas lidam com
 
 Confiar na capacidade das pessoas de gerenciar seu próprio tempo é um dos maiores atos de liderança que se pode oferecer. E é nisso que acredito. É isso que vejo todos os dias: **equipes mais felizes, engajadas e produtivas.**
 
-Por que em 2025 ainda questionamos esse modelo de trabalho?
+> Por que em 2025 ainda questionamos esse modelo de trabalho?

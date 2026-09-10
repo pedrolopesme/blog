@@ -16,7 +16,7 @@ Existem alguns motivos por trás disso. Hoje vou falar de um deles.
 
 Programadores são treinados para resolver problemas, escrever código e entregar software em produção. “Visibilidade” é algo que fica de fora da escola de “um dev de sucesso”.
 
-Ser excelente no que faz não garante ser notado.
+> Ser excelente no que faz não garante ser notado.
 
 Sua liderança precisa enxergar o valor que você entrega. E não me refiro a “falar na daily que moveu sua task pra prod”. É sobre mostrar, de forma inquestionável, como o seu trabalho resolve problemas reais que impactam diretamente os objetivos da liderança.
 

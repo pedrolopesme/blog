@@ -12,7 +12,7 @@ Não vou negar o óbvio: existem devs mais produtivos que outros.
 
 O problema começa com as métricas de produtividade individual. Spoiler: em geral, são ruins.
 
-Software não é um produto individual, é uma construção coletiva.
+> Software não é um produto individual, é uma construção coletiva.
 
 Como se mede produtividade? A implicação de que existe uma métrica única e absoluta para rankear devs é absurda.
 

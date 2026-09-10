@@ -10,7 +10,7 @@ Facilitar a evolução do Dev Júnior até virar Sênior deve ser  uma questão 
 
 O problema é que transformar talento bruto em experiência exige uma cultura voltada para pessoas e, acima de tudo, paciência para colher resultados que, no curto prazo, parecem lentos.
 
-É como plantar uma floresta: demora, dá trabalho e ninguém valoriza enquanto só consegue enxergar as sementes.
+> É como plantar uma floresta: demora, dá trabalho e ninguém valoriza enquanto só consegue enxergar as sementes.
 
 “Ah, mas a IA vai permitir que um dev junior ______.” (preencha aqui uma solução mágica).
 
@@ -36,6 +36,7 @@ Transformar um Dev Júnior em Sênior não acontece por acidente. É o resultado
 
 E isso, meus amigos, definitivamente não é para qualquer um.
 
-Links:
-
-[1] [https://www.youtube.com/watch?v=1VZcOpXyS8A](https://www.youtube.com/watch?v=1VZcOpXyS8A)
+<aside class="callout">
+<strong>Referência</strong>
+[1] <a href="https://www.youtube.com/watch?v=1VZcOpXyS8A">https://www.youtube.com/watch?v=1VZcOpXyS8A</a>
+</aside>

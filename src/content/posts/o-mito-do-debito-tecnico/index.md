@@ -6,7 +6,7 @@ cover: "capa.webp"
 coverAlt: "O Mito do Débito Técnico"
 ---
 
-Débito técnico já foi um termo útil. Agora, virou um conceito vago.
+> Débito técnico já foi um termo útil. Agora, virou um conceito vago.
 
 Se tem algo de errado no desenvolvimento vira “débito técnico”, como se fosse um problema “gourmetizado”.
 
