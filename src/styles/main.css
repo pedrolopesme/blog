@@ -944,6 +944,11 @@ a:hover { text-decoration-color: currentColor; }
   font-family: var(--font-display); font-weight: 600; color: var(--accent);
 }
 .prose li + li { margin-top: 0.6em; }
+/* Lead-in label of a list item sits on its own line, as in the reference */
+.prose li > strong:first-child {
+  display: block; font-family: var(--font-display); font-weight: 600;
+  font-size: 1.08em; color: var(--ink); margin-bottom: 0.15em;
+}
 .prose li > ul, .prose li > ol { margin-top: 0.6em; }
 .prose li > ul > li::before { content: "–"; }
 
