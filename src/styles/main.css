@@ -1207,9 +1207,12 @@ mark.hl { color: #1a1816; }
   transition: background-color 0.5s ease, color 0.5s ease,
     border-color 0.5s ease, fill 0.5s ease, box-shadow 0.5s ease !important;
 }
-/* View Transitions API: gentle full-page crossfade of the theme swap */
+/* View Transitions API — gentle crossfade for the theme swap AND for
+   page-to-page navigation (cross-document), so links don't feel like a
+   hard reload. Progressive enhancement: ignored where unsupported. */
+@view-transition { navigation: auto; }
 ::view-transition-old(root), ::view-transition-new(root) {
-  animation-duration: 0.5s; animation-timing-function: ease;
+  animation-duration: 0.4s; animation-timing-function: ease;
 }
 
 /* ---------- Reduced motion --------------------------------------------- */
@@ -1217,6 +1220,10 @@ mark.hl { color: #1a1816; }
   *, *::before, *::after {
     animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important; scroll-behavior: auto !important;
+  }
+  /* `*` does not match view-transition pseudo-elements — kill them explicitly */
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) {
+    animation: none !important;
   }
 }
 
