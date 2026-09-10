@@ -40,6 +40,7 @@ a { color: inherit; }
   --highlight: #e3edf4;  /* pale blue wash */
   --olive-subtle: #505C4A; /* muted olive — meta accents */
   --linen-warm: #efe8df; /* warm linen — image frames */
+  --sepia-tint: #f7f2e6; /* light sepia — post boxes on the home */
 
   --measure: clamp(40rem, 32rem + 16vw, 50rem); /* fluid reading column */
   --wide: 72rem;           /* header / grids */
@@ -379,7 +380,7 @@ a:hover { text-decoration-color: currentColor; }
 }
 .home-card {
   display: flex; flex-direction: column; justify-content: space-between;
-  background: var(--surface); border-radius: var(--radius);
+  background: var(--sepia-tint); border-radius: var(--radius);
   padding: clamp(0.9rem, 1.5vw, 1.2rem);
   box-shadow: 0 1px 3px rgba(26, 24, 22, 0.06);
   transition: box-shadow 0.35s ease, transform 0.35s ease;
@@ -471,7 +472,7 @@ a:hover { text-decoration-color: currentColor; }
 /* ---- Layout: feature + minis ---- */
 .home-split { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); }
 .home-feature {
-  background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius);
+  background: var(--sepia-tint); border: 1px solid var(--rule); border-radius: var(--radius);
   padding: clamp(1.4rem, 2.5vw, 2rem); display: flex; flex-direction: column;
 }
 .home-feature__meta {
@@ -537,7 +538,7 @@ a:hover { text-decoration-color: currentColor; }
 /* ---- Layout: panorama (closing showcase) ---- */
 .home-panorama {
   display: grid; grid-template-columns: 5fr 7fr; gap: clamp(1.8rem, 3.5vw, 3rem);
-  align-items: center; background: var(--surface);
+  align-items: center; background: var(--sepia-tint);
   border: 1px solid var(--rule); border-radius: var(--radius);
   padding: clamp(1.5rem, 3.5vw, 3rem);
 }
@@ -1168,6 +1169,7 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   --accent:  #9cc6e0;   /* lit parchment blue */
   --accent-ink: #b8d8ec;
   --highlight: #22323d;
+  --sepia-tint: #221e18; /* warm dark equivalent */
 }
 [data-theme="dark"] .site-header { background: linear-gradient(180deg, #241f1b, var(--surface)); }
 [data-theme="dark"] .site-footer { background: #1c1a16; }
