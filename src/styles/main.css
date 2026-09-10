@@ -929,18 +929,46 @@ a:hover { text-decoration-color: currentColor; }
 .prose em { font-style: italic; }
 .prose small { font-size: 0.85em; color: var(--muted); }
 
-.prose ul, .prose ol { padding-left: 1.4em; }
-.prose ul { list-style: none; }
-.prose ul > li { position: relative; }
-.prose ul > li::before { content: "—"; position: absolute; left: -1.4em; color: var(--faint); }
-.prose ol { list-style: decimal; }
-.prose ol > li::marker { color: var(--faint); font-variant-numeric: oldstyle-nums; }
-.prose li + li { margin-top: 0.4em; }
-.prose li > ul, .prose li > ol { margin-top: 0.4em; }
+/* Lists — accent markers, generous rhythm */
+.prose ul, .prose ol { padding-left: 0; list-style: none; }
+.prose ul > li, .prose ol > li { position: relative; padding-left: 2.2em; }
+.prose ul > li::before {
+  content: "❧"; position: absolute; left: 0.5em; top: 0;
+  color: var(--accent); font-size: 0.85em; line-height: 1.7;
+}
+.prose ol { counter-reset: prose-ol; }
+.prose ol > li { counter-increment: prose-ol; }
+.prose ol > li::before {
+  content: counter(prose-ol, upper-roman) ".";
+  position: absolute; left: 0; top: 0; width: 1.7em; text-align: right;
+  font-family: var(--font-display); font-weight: 600; color: var(--accent);
+}
+.prose li + li { margin-top: 0.6em; }
+.prose li > ul, .prose li > ol { margin-top: 0.6em; }
+.prose li > ul > li::before { content: "–"; }
 
-.prose blockquote { border-left: 2px solid var(--rule-strong); padding-left: 1.4em;
-  color: var(--ink-soft); font-style: italic; }
-.prose blockquote p { margin-top: 0.6em; }
+/* Blockquote — parchment plate with decorative quote mark */
+.prose blockquote {
+  position: relative; margin-block: 2.6em; padding: 1.8em 2em 1.5em;
+  background: var(--sepia-tint); border-block: 1px solid var(--rule);
+  border-radius: 6px; color: var(--ink);
+}
+.prose blockquote::before {
+  content: "\201C"; position: absolute; top: 0.05em; left: 0.4em;
+  font-family: var(--font-display); font-size: 4rem; line-height: 1;
+  color: var(--accent); opacity: 0.2; pointer-events: none;
+}
+.prose blockquote p {
+  position: relative; z-index: 1; margin-top: 0;
+  font-family: var(--font-display); font-style: italic;
+  font-size: var(--step-1); line-height: 1.55; text-align: center;
+}
+.prose blockquote p + p { margin-top: 0.8em; }
+.prose blockquote cite {
+  display: block; margin-top: 1.1em; text-align: center; font-style: normal;
+  font-family: var(--font-sans); font-size: 0.68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted);
+}
 
 .prose hr { border: 0; text-align: center; margin: 2.6em auto; max-width: 8rem; }
 .prose hr::before { content: "❧"; color: var(--faint); font-size: 1.2rem; }
@@ -949,10 +977,26 @@ a:hover { text-decoration-color: currentColor; }
 .prose figure { margin-block: 2em; }
 .prose figure img { width: 100%; }
 
-.prose table { width: 100%; border-collapse: collapse; font-size: var(--step--1); }
-.prose th, .prose td { text-align: left; padding: 0.6em 0.8em; border-bottom: 1px solid var(--rule); }
-.prose thead th { border-bottom: 2px solid var(--rule-strong);
-  font-family: var(--font-display); font-weight: 600; }
+/* Table — framed plate with header strip and hairline rows */
+.prose-table {
+  margin-block: 2.4em; overflow-x: auto;
+  border: 1px solid var(--rule); border-radius: 8px;
+  background: var(--surface); box-shadow: var(--shadow);
+}
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0; }
+.prose thead th {
+  font-family: var(--font-sans); font-size: 0.68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
+  background: var(--sepia-tint); border-bottom: 1px solid var(--rule);
+  text-align: left; padding: 0.75em 1em; white-space: nowrap;
+}
+.prose tbody td {
+  font-family: var(--font-serif); color: var(--ink); text-align: left;
+  padding: 0.8em 1em; border-bottom: 1px solid var(--rule);
+}
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr { transition: background 0.2s ease; }
+.prose tbody tr:hover { background: var(--sepia-tint); }
 
 /* Heading anchors */
 .heading-anchor { text-decoration: none; color: var(--faint); margin-left: 0.4ch;
@@ -1040,9 +1084,13 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
 }
 /* ---------- 8. Reusable content components ------------------------------ */
 /* Callout / aside boxes. Variants via modifier classes. */
-.callout { background: var(--surface); border: 1px solid var(--rule);
-  border-left: 3px solid var(--accent); border-radius: var(--radius);
-  padding: 1.1em 1.3em; font-size: var(--step--1); color: var(--ink-soft); }
+.callout { background: var(--sepia-tint); border: 1px solid var(--rule);
+  border-left: 2px solid var(--accent); border-radius: 0 8px 8px 0;
+  padding: 1.3em 1.5em; margin-block: 2.2em; font-size: 0.95rem;
+  color: var(--ink-soft); box-shadow: var(--shadow); }
+.callout > :first-child { margin-top: 0; }
+.callout > strong:first-child { display: block; margin-bottom: 0.4em;
+  font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); }
 .callout strong { color: var(--ink); }
 .callout--note { border-left-color: #6b7a8a; }
 .callout--warn { border-left-color: #b5892f; background: rgba(181, 137, 47, 0.12); }
@@ -1071,13 +1119,41 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
 .prose :not(pre) > code { background: var(--highlight); padding: 0.12em 0.4em;
   border-radius: var(--radius); border: 1px solid var(--rule); }
 
-.code-block { margin-block: 2em; position: relative; background: #1c1a17;
-  border-radius: 6px; overflow: hidden; box-shadow: var(--shadow); }
-.code-block__lang { position: absolute; top: 0; right: 0; font-family: var(--font-mono);
-  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: #8f8676; padding: 0.5rem 0.8rem; }
-.code-block pre { margin: 0; padding: 1.2rem 1.3rem; overflow-x: auto;
-  font-size: 0.82rem; line-height: 1.6; color: #ece5d6; }
+/* Code block — dark plate with header bar, language badge, copy + gutter */
+.code-block {
+  margin-block: 2.4em; background: #1e1c1a; color: #e8e4df;
+  border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.code-block__bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.55rem 0.9rem; background: #171514; border-bottom: 1px solid #2d2a27;
+}
+.code-block__lang {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: #e5a882;
+  background: #2e2822; border: 1px solid #523b2a;
+  padding: 0.1rem 0.5rem; border-radius: 4px;
+}
+.code-block__copy {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #a89f91; background: none; border: 0;
+  cursor: pointer; padding: 0.2rem 0.1rem; transition: color 0.2s ease;
+}
+.code-block__copy:hover { color: #faf8f5; }
+.code-block__copy[data-state="done"] { color: #85c492; }
+.code-block__copy[data-state="fail"] { color: #d9825b; }
+.code-block__body { display: flex; overflow-x: auto; }
+.code-block__lines {
+  flex: none; margin: 0; padding: 1.1rem 0.9rem; text-align: right;
+  font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.65;
+  color: #5a5248; background: none; border-right: 1px solid #302b26;
+  user-select: none; -webkit-user-select: none;
+}
+.code-block pre.hljs {
+  margin: 0; padding: 1.1rem 1.3rem; overflow-x: auto; flex: 1;
+  font-size: 0.8rem; line-height: 1.65; color: #ddd6cb; background: none;
+}
 .code-block code { font-family: var(--font-mono); }
 
 /* highlight.js token theme (warm, muted) */
@@ -1234,4 +1310,5 @@ mark.hl { color: #1a1816; }
   body { background: #fff; color: #000; }
   .code-block { background: #f4f1ea; box-shadow: none; border: 1px solid #ccc; }
   .code-block pre { color: #222; }
+  .code-block__bar, .code-block__lines { display: none; }
 }
