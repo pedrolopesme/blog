@@ -676,8 +676,9 @@ a:hover { text-decoration-color: currentColor; }
 .post { max-width: 43rem; }
 .post-header { width: 100%; max-width: var(--measure); margin-inline: auto; text-align: center;
   margin-bottom: clamp(2rem, 5vw, 3.2rem); padding-top: clamp(2rem, 5vw, 3.5rem); }
-.post-title { font-size: var(--step-4); font-weight: 700; margin: 0.3em 0 0.5em;
-  font-variation-settings: "opsz" 72; letter-spacing: -0.025em; font-family: var(--font-display); }
+.post-title { font-size: clamp(2.4rem, 4.6vw, 3.9rem); font-weight: 400; margin: 0.3em 0 0.5em;
+  font-variation-settings: "opsz" 72; letter-spacing: -0.03em; line-height: 1.1;
+  font-family: var(--font-display); }
 .post-lede { font-size: var(--step-1); color: var(--ink-soft); font-style: italic;
   max-width: 34rem; margin-inline: auto; line-height: 1.5; }
 .post-meta { margin-top: 1rem; font-family: var(--font-sans); font-size: 0.78rem;
@@ -701,10 +702,10 @@ a:hover { text-decoration-color: currentColor; }
 }
 .post-cover:hover .post-cover__overlay::before { opacity: 0; }
 .post-cover__title {
-  font-family: var(--font-display); font-weight: 700; color: #fff;
-  font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.1; letter-spacing: -0.025em;
-  font-variation-settings: "opsz" 72; max-width: 18ch; margin: 0 auto;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-display); font-weight: 400; color: #fff;
+  font-size: clamp(2.6rem, 5.6vw, 4.9rem); line-height: 1.08; letter-spacing: -0.03em;
+  font-variation-settings: "opsz" 72; max-width: 20ch; margin: 0 auto;
+  text-shadow: 0 1px 24px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.16);
   transition: opacity 0.65s ease, text-shadow 0.65s ease;
 }
 .post-cover:hover .post-cover__title {
