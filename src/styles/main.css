@@ -40,9 +40,12 @@ a { color: inherit; }
   --highlight: #e3edf4;  /* pale blue wash */
   --olive-subtle: #505C4A; /* muted olive — meta accents */
   --linen-warm: #efe8df; /* warm linen — image frames */
+  --chart-b: #8a6a4a; /* second data series — warm bronze against the blue */
+  --chart-c: #5c7a52; /* third series — muted sage against blue and bronze */
   --sepia-tint: #f7f2e6; /* light sepia — post boxes on the home */
 
   --measure: clamp(40rem, 32rem + 16vw, 50rem); /* fluid reading column */
+  --post-measure: 43rem;   /* article column — tighter than --measure */
   --wide: 72rem;           /* header / grids */
   --gutter: clamp(1.1rem, 5vw, 2.5rem);
 
@@ -315,14 +318,9 @@ a:hover { text-decoration-color: currentColor; }
   font-family: var(--font-sans); font-size: 0.7rem; font-style: italic; color: var(--muted);
   letter-spacing: 0.04em;
 }
-/* Framed image */
-.home-hero__frame {
-  background: var(--linen-warm); border: 1px solid var(--rule); border-radius: 3px;
-  padding: clamp(0.7rem, 1.2vw, 1rem); box-shadow: 0 1px 4px rgba(26, 24, 22, 0.06);
-}
 .home-hero__art {
   display: block; position: relative; overflow: hidden;
-  border: 1px solid rgba(26, 24, 22, 0.08); border-radius: 2px; text-decoration: none;
+  border-radius: 2px; text-decoration: none;
 }
 .home-hero__art img {
   width: 100%; aspect-ratio: 5 / 4; object-fit: cover;
@@ -330,12 +328,6 @@ a:hover { text-decoration-color: currentColor; }
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .home-hero__art:hover img { transform: scale(1.015); }
-.home-hero__fig {
-  position: absolute; bottom: 0.6rem; right: 0.6rem;
-  font-family: var(--font-sans); font-size: 0.56rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
-  background: rgba(250, 248, 245, 0.88); padding: 0.25rem 0.5rem; border: 1px solid var(--rule);
-}
 
 /* Home category sections */
 .home-section { margin-bottom: clamp(2.8rem, 6vw, 4.5rem); }
@@ -674,7 +666,7 @@ a:hover { text-decoration-color: currentColor; }
   font-variant-numeric: tabular-nums; }
 
 /* ---------- 7. Article & prose ----------------------------------------- */
-.post { max-width: 43rem; }
+.post { max-width: var(--post-measure); }
 .post-header { width: 100%; max-width: var(--measure); margin-inline: auto; text-align: center;
   margin-bottom: clamp(2rem, 5vw, 3.2rem); padding-top: clamp(2rem, 5vw, 3.5rem); }
 .post-title { font-size: clamp(2.4rem, 4.6vw, 3.9rem); font-weight: 400; margin: 0.3em 0 0.5em;
@@ -975,12 +967,240 @@ a:hover { text-decoration-color: currentColor; }
   text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted);
 }
 
+/* Excerpt — a passage transcribed verbatim from a source document. Gets the
+   classic inset block quotation instead of the pull-quote plate: this is
+   evidence being shown, not a thesis being declared. */
+.prose blockquote.excerpt {
+  margin-block: 2.4em; margin-inline-end: clamp(0rem, 6vw, 3rem);
+  padding: 0.15em 0 0.15em 1.7em;
+  background: none; border: 0; border-left: 1px solid var(--accent);
+  border-radius: 0;
+}
+.prose blockquote.excerpt::before { content: none; }
+.prose blockquote.excerpt p {
+  font-family: var(--font-serif); font-style: normal;
+  font-size: var(--step-0); line-height: 1.68; text-align: left;
+  color: var(--ink-soft);
+}
+.prose blockquote.excerpt p + p { margin-top: 0.75em; }
+.prose blockquote.excerpt .elision {
+  margin-block: 0.45em; color: var(--faint); letter-spacing: 0.24em;
+}
+.prose blockquote.excerpt cite {
+  margin-top: 1em; text-align: left;
+  font-size: 0.64rem; letter-spacing: 0.14em;
+}
+
+/* Figure bleed — charts and diagrams step outside the reading column for a
+   more composed page. The room is derived from the tokens rather than
+   guessed: whatever the viewport offers beyond --post-measure, capped at
+   5rem a side and floored at 0, so narrow screens collapse back to the
+   column with no overflow. --post-measure is a deliberately conservative
+   basis: .prose is never wider than it, so the result cannot overshoot. */
+.prose .chart,
+.prose .flow,
+.prose .layers {
+  --bleed: min(5rem, max(0px,
+    (min(100vw - 2 * var(--gutter), var(--wide)) - var(--post-measure)) / 2));
+  width: calc(100% + 2 * var(--bleed));
+  margin-inline: calc(-1 * var(--bleed));
+}
+/* The caption is prose, so it keeps a readable line length even when the
+   plate around it grows. */
+.prose .chart figcaption,
+.prose .layers figcaption { max-width: var(--post-measure); margin-inline: auto; }
+
+/* Chart — data redrawn natively so it inherits the palette, the fonts and
+   both themes. Plain inline SVG: no runtime, no library. */
+.prose .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart__frame { fill: none; stroke: var(--rule); stroke-width: 1; }
+.chart__grid { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 2 4; }
+.chart__band { fill: var(--accent); opacity: 0.06; }
+.chart__area { fill: url(#chartFade); }
+.chart__line {
+  fill: none; stroke: var(--accent); stroke-width: 2.2;
+  stroke-linejoin: round; stroke-linecap: round;
+}
+.chart__dot { fill: var(--paper); stroke: var(--accent); stroke-width: 2; }
+.chart__tick {
+  font-family: var(--font-sans); font-size: 15px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; fill: var(--muted);
+}
+.chart__axis {
+  font-family: var(--font-sans); font-size: 13.5px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; fill: var(--faint);
+}
+.chart__note {
+  font-family: var(--font-serif); font-style: italic; font-size: 19px;
+  fill: var(--ink-soft);
+}
+.chart__value {
+  font-family: var(--font-display); font-size: 23px; font-weight: 600;
+  fill: var(--accent-ink);
+}
+.chart__leader { stroke: var(--rule-strong); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.chart__mark { fill: var(--accent); stroke: none; opacity: 0.55; }
+.chart__ref { stroke: var(--accent); stroke-width: 1.2; opacity: 0.5; }
+.chart__reflabel {
+  font-family: var(--font-sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; fill: var(--accent-ink);
+}
+.chart__area--alt { fill: url(#chartFade2); }
+/* Second series — bronze against the blue, plus its legend row. */
+.chart__line--b { stroke: var(--chart-b); }
+.chart__mark--b { fill: var(--chart-b); }
+.chart__dot--b { stroke: var(--chart-b); }
+.chart__value--b { fill: var(--chart-b); }
+.chart__key {
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; fill: var(--accent-ink);
+}
+.chart__key--b { fill: var(--chart-b); }
+.chart__swatch { stroke: var(--accent); stroke-width: 3; stroke-linecap: round; }
+.chart__swatch--b { stroke: var(--chart-b); }
+/* The viewBox scales the whole drawing down with the column, so on a phone
+   the desktop sizes land at under half their value. Scale strokes and labels
+   back up in viewBox units instead of making the reader pan a chart sideways.
+   Kept just under a straight 2x so the y labels don't overrun the left edge. */
+@media (max-width: 40rem) {
+  .chart__line { stroke-width: 4; }
+  .chart__dot { stroke-width: 3.5; }
+  .chart__leader { stroke-width: 2.4; stroke-dasharray: 5 5; }
+  .chart__grid { stroke-width: 2; stroke-dasharray: 4 7; }
+  .chart__frame { stroke-width: 2; }
+  .chart__ref { stroke-width: 2.4; }
+  .chart__mark { r: 5.5; }
+  .chart__reflabel { font-size: 23px; letter-spacing: 0.06em; }
+  .chart__key { font-size: 25px; letter-spacing: 0.04em; }
+  .chart__swatch { stroke-width: 6; }
+  .chart__tick { font-size: 26px; letter-spacing: 0.04em; }
+  .chart__axis { font-size: 24px; letter-spacing: 0.06em; }
+  .chart__note { font-size: 33px; }
+  .chart__value { font-size: 39px; }
+}
+
+/* Flow comparison — the request path before and after, side by side. Plain
+   markup rather than a drawing: the labels stay real, selectable text and
+   the two columns stack on a phone. */
+.prose .flow { margin-block: 2.8em; }
+.flow__grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(0.9rem, 2.5vw, 1.8rem); align-items: start;
+}
+.flow__col {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 8px;
+  padding: clamp(0.9rem, 1.8vw, 1.3rem);
+}
+.flow__col--now { background: var(--sepia-tint); border-color: var(--rule-strong); }
+.flow__head {
+  margin: 0 0 0.9rem; padding-bottom: 0.55rem; text-align: center;
+  font-family: var(--font-sans); font-size: 0.66rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+}
+.flow__col--now .flow__head { color: var(--accent-ink); border-bottom-color: var(--accent); }
+/* `.prose ol/ul > li` carries the roman counter, the fleuron and a 2.2em
+   indent. Two classes here outweigh its one-class/two-type specificity, so
+   the chain opts out without !important. */
+.prose .flow__chain,
+.prose .flow__fan { list-style: none; margin: 0; padding: 0; }
+.prose .flow__chain > li,
+.prose .flow__fan > li { margin: 0; padding-left: 0; position: relative; }
+.prose .flow__chain > li::before,
+.prose .flow__fan > li::before { content: none; }
+.flow__node {
+  display: block; text-align: center;
+  font-family: var(--font-serif); font-size: var(--step--1); line-height: 1.35;
+  color: var(--ink-soft); background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 6px; padding: 0.5rem 0.6rem;
+}
+.flow__col--now .flow__node { color: var(--ink); }
+/* Connector: keeps the arrow the original diagram drew in plain text. */
+.prose .flow__chain > li + li { padding-top: 1.6rem; }
+.prose .flow__chain > li + li::before {
+  content: "↓"; position: absolute; top: 0.1rem; left: 0; right: 0;
+  text-align: center; font-family: var(--font-sans); font-size: 0.78rem;
+  line-height: 1.4; color: var(--faint);
+}
+.prose .flow__col--now .flow__chain > li + li::before { color: var(--accent); }
+.flow__node--hub { padding-bottom: 0.7rem; border-color: var(--accent); }
+.flow__hub {
+  display: block; margin-bottom: 0.6rem;
+  font-family: var(--font-sans); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-ink);
+}
+.flow__fan {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.3rem;
+}
+.prose .flow__fan > li {
+  padding: 0.3rem 0.15rem; text-align: center;
+  font-family: var(--font-sans); font-size: 0.58rem; line-height: 1.25;
+  letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted);
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 4px;
+}
+@media (max-width: 34rem) {
+  .flow__grid { grid-template-columns: 1fr; }
+  .flow__fan { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Layers — concentric containment redrawn as nested plates. The source was a
+   bullseye; rectangles carry the same "each layer wraps the next" meaning
+   while keeping every label horizontal and legible. Tints come from
+   color-mix against --paper, so one declaration serves both themes. */
+.prose .layers { margin-block: 2.8em; }
+.layers__ring {
+  border: 1px solid var(--lc); border-radius: 10px;
+  background: color-mix(in srgb, var(--lc) 7%, var(--paper));
+  padding: clamp(0.85rem, 1.9vw, 1.35rem);
+}
+.layers__ring--harness { --lc: var(--chart-b); }
+.layers__ring--context { --lc: var(--accent); }
+.layers__ring--prompt  { --lc: var(--chart-c); }
+.layers__name {
+  margin: 0 0 0.8rem; text-align: center;
+  font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--lc);
+}
+.prose .layers__tags {
+  list-style: none; margin: 0 0 1.05rem; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.38rem;
+}
+.prose .layers__tags > li {
+  margin: 0; padding: 0.34rem 0.75rem; position: static;
+  font-family: var(--font-sans); font-size: 0.72rem; line-height: 1.3;
+  letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft);
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 100px;
+}
+.prose .layers__tags > li::before { content: none; }
+.layers__core {
+  margin: 0 auto; width: fit-content;
+  padding: 0.6rem 2rem; border-radius: 100px;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--font-sans); font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; text-align: center;
+}
+
 .prose hr { border: 0; text-align: center; margin: 2.6em auto; max-width: 8rem; }
 .prose hr::before { content: "❧"; color: var(--faint); font-size: 1.2rem; }
 
+/* Figures — linen-matted plate, echoing the home hero frame. Scoped so the
+   code-block <figure> keeps its own dark treatment. */
 .prose img { border-radius: var(--radius); margin-inline: auto; }
-.prose figure { margin-block: 2em; }
-.prose figure img { width: 100%; }
+.prose figure { margin-block: 2.4em; }
+.prose figure:has(figcaption) {
+  background: var(--linen-warm); border: 1px solid var(--rule); border-radius: 3px;
+  padding: clamp(0.7rem, 1.2vw, 1rem);
+  box-shadow: 0 1px 4px rgba(26, 24, 22, 0.06);
+}
+.prose figure img {
+  display: block; width: 100%;
+  border: 1px solid rgba(26, 24, 22, 0.08); border-radius: 2px;
+}
+.prose figure figcaption {
+  margin-top: 0.7em; text-align: center;
+  font-family: var(--font-serif); font-style: italic;
+  font-size: var(--step--1); line-height: 1.4; color: var(--muted);
+}
 
 /* Table — framed plate with header strip and hairline rows */
 .prose-table {
@@ -1094,6 +1314,9 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   padding: 1.3em 1.5em; margin-block: 2.2em; font-size: 0.95rem;
   color: var(--ink-soft); box-shadow: var(--shadow); }
 .callout > :first-child { margin-top: 0; }
+/* Reference lists carry bare URLs. Some have no break opportunity that fits a
+   phone, and an unbroken one scrolls the whole page sideways. */
+.callout a { overflow-wrap: anywhere; }
 .callout > strong:first-child { display: block; margin-bottom: 0.4em;
   font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); }
 .callout strong { color: var(--ink); }
@@ -1251,6 +1474,9 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   --accent-ink: #b8d8ec;
   --highlight: #22323d;
   --sepia-tint: #221e18; /* warm dark equivalent */
+  --linen-warm: #241f19; /* warm dark mat — image frames */
+  --chart-b: #d3a778; /* lit bronze — second data series */
+  --chart-c: #9dba90; /* lit sage — third series */
 }
 [data-theme="dark"] .site-header { background: linear-gradient(180deg, #241f1b, var(--surface)); }
 [data-theme="dark"] .site-footer { background: #1c1a16; }
