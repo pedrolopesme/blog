@@ -68,7 +68,7 @@ Como uma imagem vale mais do que mil palavras, observe o problema:
     <text class="chart__value" x="716" y="104" text-anchor="end">US$600 / dia</text>
     <text class="chart__note" x="716" y="148" text-anchor="end">3,7× em um mês</text>
   </svg>
-  <figcaption>Fig. 01 — Custo diário de inference do pesquisador mediano. Redesenhado a partir dos dados de OpenAI <a href="#ref-1">[1]</a></figcaption>
+  <figcaption>Custo diário de inference do pesquisador mediano. Redesenhado a partir dos dados de OpenAI <a href="#ref-1">[1]</a></figcaption>
 </figure>
 
 Pra ficar claro: pesquisadores medianos consumindo **mais de US$600/dia** em inference no fim de agosto (vs. ~US$150 meses antes);
@@ -113,7 +113,7 @@ Eles também publicaram um número interessante: o crescimento no número de exp
     <circle class="chart__dot" cx="730" cy="107.3" r="5" />
     <text class="chart__value" x="714" y="88" text-anchor="end">1,61&#215;</text>
   </svg>
-  <figcaption>Fig. 02 — Experimentos por pesquisador ativo, amostragem semanal. Eixo a partir de zero, ao contrário do original. Redesenhado a partir dos dados de OpenAI <a href="#ref-1">[1]</a></figcaption>
+  <figcaption>Experimentos por pesquisador ativo, amostragem semanal. Eixo a partir de zero, ao contrário do original. Redesenhado a partir dos dados de OpenAI <a href="#ref-1">[1]</a></figcaption>
 </figure>
 
 Sem dúvidas, um crescimento importante. Agora vamos colocar em escala, em relação ao primeiro chart, o de custos:
@@ -148,14 +148,14 @@ Sem dúvidas, um crescimento importante. Agora vamos colocar em escala, em rela�
     <line class="chart__swatch" x1="92" y1="424" x2="118" y2="424" /><text class="chart__key" x="126" y="428">Custo / dia</text>
     <line class="chart__swatch chart__swatch--b" x1="496" y1="424" x2="522" y2="424" /><text class="chart__key chart__key--b" x="530" y="428">Experimentos</text>
   </svg>
-  <figcaption>Fig. 03 — Custo e volume de experimentos, ambos indexados em 1× em 1/abr. Escala logarítmica: partindo do mesmo ponto, o que se compara é a inclinação. Base em abril, e não em janeiro, porque o custo de janeiro (~US$1/dia) é pequeno demais para servir de denominador. Redesenhado a partir dos dados de OpenAI <a href="#ref-1">[1]</a></figcaption>
+  <figcaption>Custo e volume de experimentos, ambos indexados em 1× em 1/abr. Escala logarítmica: partindo do mesmo ponto, o que se compara é a inclinação. Base em abril, e não em janeiro, porque o custo de janeiro (~US$1/dia) é pequeno demais para servir de denominador. Redesenhado a partir dos dados de OpenAI <a href="#ref-1">[1]</a></figcaption>
 </figure>
 
 Mas mesmo assim, como diria Warren Buffett: "Preço é o que você paga, valor é o que você tem".
 
 ## A virada: o modelo deixou de ser a resposta
 
-Se nem quem fabrica os modelos controla o custo de usá-los, a saída parou de ser "esperar o próximo modelo". O modelo intermediário de hoje foi o modelo de fronteira ontem — e seus custos também.
+Se nem quem fabrica os modelos controla o custo de usá-los, a saída parou de ser "esperar o próximo modelo". O modelo intermediário de hoje foi o modelo de fronteira ontem. E seus custos também.
 
 **O gargalo da engenharia de software com IA está deixando de ser inteligência e passando a ser arquitetura de workflow no processo de desenvolvimento.**
 
@@ -169,9 +169,9 @@ O caminho para a balança entre custo vs qualidade, na minha mente, passa pela e
 
 Você poderia argumentar: "então é só o dev escolher o modelo barato quando dá."
 
-Na prática, isso não escala. Cada decisão de "qual modelo agora?" é uma troca de tarefa — e troca de tarefa tem custo mensurável de tempo e erro.
+Na prática, isso não escala. Cada decisão de "qual modelo agora?" é uma troca de tarefa. E troca de tarefa tem custo mensurável de tempo e erro.
 
-O dev que fica micro-otimizando modelo para economizar centavos de inference está gastando o recurso mais caro da sala: a própria atenção. É falsa economia. Não é trabalho de humano — é trabalho que precisa ser automatizado.
+O dev que fica micro-otimizando modelo para economizar centavos de inference está gastando o recurso mais caro da sala: a própria atenção. É falsa economia. Não é trabalho de humano. É trabalho que precisa ser automatizado.
 
 Como resposta disso, há um crescimento nos mecanismos de escolha inteligente de modelos, que tentam identificar dinamicamente a natureza e a complexidade das tarefas e, assim, escolher o modelo que forneça a melhor qualidade com o menor preço.
 
@@ -187,7 +187,7 @@ Em vez de o desenvolvedor escolher simplesmente "o melhor modelo", o runtime dec
 
 <figure>
   <img src="hydrafusion-padroes.webp" alt="Diagrama dos três padrões de orquestração do Copilot HydraFusion: single, cascade e critique" />
-  <figcaption>Fig. 04 — Os padrões single, cascade e critique. Fonte: GitHub <a href="#ref-2">[2]</a></figcaption>
+  <figcaption>Os padrões single, cascade e critique. Fonte: GitHub <a href="#ref-2">[2]</a></figcaption>
 </figure>
 
 Nos testes deles, houve uma redução de mais de 60% do custo, se comparado ao uso contínuo do Opus 5. No meu uso limitado durante testes, estimo uma economia mais tímida, algo entre 20 a 30%.
@@ -230,7 +230,7 @@ Harness não é só confiabilidade. Um agente trabalhando de forma errada signif
 
 <figure class="layers">
   <div class="layers__ring layers__ring--harness"><p class="layers__name">Harness</p><ul class="layers__tags"><li>API</li><li>Memória</li><li>Ferramentas</li><li>Sandbox</li><li>Guardrails</li><li>Monitoramento</li><li>Orquestração</li><li>CI/CD</li><li>Logging</li></ul><div class="layers__ring layers__ring--context"><p class="layers__name">Contexto</p><ul class="layers__tags"><li>Histórico da conversa</li><li>Dados recuperados</li><li>Turnos anteriores</li><li>Base de conhecimento</li><li>Documentos</li></ul><div class="layers__ring layers__ring--prompt"><p class="layers__name">Prompt</p><ul class="layers__tags"><li>Instrução</li><li>Papel</li><li>Tom</li><li>Few-shot</li></ul><div class="layers__core">Modelo</div></div></div></div>
-  <figcaption>Fig. 05 — O modelo no núcleo, e cada camada que o envolve. Redesenhado a partir do diagrama de Birgitta Böckeler <a href="#ref-3">[3]</a></figcaption>
+  <figcaption>O modelo no núcleo, e cada camada que o envolve. Redesenhado a partir do diagrama de Birgitta Böckeler <a href="#ref-3">[3]</a></figcaption>
 </figure>
 
 **Um bom harness constrói o ambiente no qual o agente consegue executar trabalho confiável.**
@@ -252,7 +252,7 @@ O mais importante é a sinceridade deles ao admitir: no início, o processo é m
 <cite>OpenAI <a href="#ref-4">[4]</a></cite>
 </blockquote>
 
-E, na minha percepção nos meus times, isso é verdade — em especial em projetos criados antes desta era de IA e agentes.
+E, na minha percepção nos meus times, isso é verdade, em especial em projetos criados antes desta era de IA e agentes.
 
 Contexto, guardrails, quality gates, intenções de entrega, padrões de codificação, design, processo de review, testes... definir isso tudo leva tempo.
 
