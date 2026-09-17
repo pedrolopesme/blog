@@ -124,22 +124,11 @@ a:hover { text-decoration-color: currentColor; }
 }
 .site-header__brand { text-decoration: none; display: flex; align-items: center; gap: 0.8rem; }
 .site-header__logo {
-  flex: none; width: 2.4rem; height: 2.4rem; border-radius: 8px;
-  object-fit: contain;
+  /* Horizontal wordmark: fixed height, intrinsic ratio drives the width. */
+  flex: none; width: auto; height: 2.5rem; display: block;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.site-header__brand:hover .site-header__logo { transform: translateY(-1px) rotate(-3deg); }
-.site-header__word {
-  display: flex; align-items: center;
-  padding-left: 0.85rem; border-left: 1px solid var(--rule-strong);
-}
-.site-header__title {
-  font-family: var(--font-display); font-weight: 600; font-size: var(--step-1);
-  color: var(--ink); letter-spacing: -0.01em; line-height: 1;
-  font-variation-settings: "opsz" 40;
-}
-.site-header__brand:hover .site-header__title { color: var(--accent-ink); }
-.site-header__tagline { display: none; }
+.site-header__brand:hover .site-header__logo { transform: translateY(-1px); }
 /* Hamburger toggle — hidden on desktop */
 .site-header__toggle {
   display: none; background: none; border: 0; cursor: pointer;
@@ -1231,7 +1220,12 @@ a:hover { text-decoration-color: currentColor; }
 /* Drop cap — first paragraph of post automatically */
 .is-post .prose > p:first-of-type::first-letter {
   font-family: var(--font-display); font-weight: 700; float: left;
-  line-height: 0.8; font-size: 3.2em; padding-right: 0.06em; margin-top: 0.05em;
+  /* Two-line cap. line-height:1 makes the float box exactly the font size;
+     margin-top sinks the glyph so its cap-height meets the first line's
+     ascenders, and box height + margins stay under 2 x --leading so the
+     float clears exactly two lines. */
+  font-size: 3em; line-height: 1;
+  margin: 0.098em 0.1em 0.045em 0;
   color: var(--accent-ink);
 }
 
@@ -1406,7 +1400,7 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
     text-align: center; gap: 0.9rem; position: relative; min-height: 2.6rem;
   }
   .site-header__brand { flex-direction: row; gap: 0.6rem; position: relative; z-index: 60; }
-  .site-header__word { display: none; }
+  .site-header__logo { height: 2.1rem; }
   .site-header__toggle {
     display: block; position: absolute; top: 50%; right: 0; transform: translateY(-50%); z-index: 60;
   }
@@ -1493,6 +1487,9 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
 [data-theme="dark"] .post-nav__spine { background: rgba(32, 29, 25, 0.88); }
 [data-theme="dark"] .hl-add { color: #1a1816; }
 [data-theme="dark"] img { filter: brightness(0.92) contrast(0.98); }
+/* The wordmark is pure black ink on transparency — flip it on dark ground
+   (this also overrides the blanket image dimming above). */
+[data-theme="dark"] .site-header__logo { filter: invert(1) brightness(0.95); }
 @media (max-width: 40rem) {
   [data-theme="dark"] .site-nav { background: var(--paper); }
 }
