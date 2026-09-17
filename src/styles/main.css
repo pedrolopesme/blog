@@ -49,12 +49,12 @@ a { color: inherit; }
   --wide: 72rem;           /* header / grids */
   --gutter: clamp(1.1rem, 5vw, 2.5rem);
 
-  --step--1: clamp(0.86rem, 0.83rem + 0.15vw, 0.95rem);
-  --step-0:  clamp(1.12rem, 1.06rem + 0.3vw, 1.3rem);
-  --step-1:  clamp(1.28rem, 1.18rem + 0.5vw, 1.6rem);
-  --step-2:  clamp(1.55rem, 1.35rem + 1vw, 2.1rem);
-  --step-3:  clamp(1.9rem, 1.55rem + 1.7vw, 2.9rem);
-  --step-4:  clamp(2.35rem, 1.8rem + 2.7vw, 3.9rem);
+  --step--1: clamp(0.96rem, 0.92rem + 0.2vw, 1.05rem);
+  --step-0:  clamp(1.2rem, 1.14rem + 0.3vw, 1.4rem);
+  --step-1:  clamp(1.38rem, 1.28rem + 0.5vw, 1.7rem);
+  --step-2:  clamp(1.65rem, 1.44rem + 1.05vw, 2.2rem);
+  --step-3:  clamp(2.0rem, 1.62rem + 1.9vw, 3rem);
+  --step-4:  clamp(2.45rem, 1.86rem + 2.95vw, 4.1rem);
 
   --leading: 1.72;
   --leading-tight: 1.18;
@@ -1399,15 +1399,25 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
 
 /* ---------- 10. Responsive & dark -------------------------------------- */
 @media (max-width: 40rem) {
-  .site-header { position: sticky; top: 0; z-index: 55; }
+  /* Apollo-style mobile masthead: white sheet, burger on the left, oversized
+     wordmark centred on the viewport, solid black rule closing the block.
+     The brand is taken out of flow so the burger's width cannot shift it off
+     centre; min-height then has to carry the logo's height. */
+  .site-header { position: sticky; top: 0; z-index: 55; background: #fff; }
+  .site-header::after { height: 0.5px; background: var(--ink); opacity: 1; }
   .site-header__inner {
-    flex-direction: row; align-items: center; justify-content: center;
-    text-align: center; gap: 0.9rem; position: relative; min-height: 2.6rem;
+    flex-direction: row; align-items: center; justify-content: flex-start;
+    text-align: left; gap: 0.9rem; position: relative; min-height: 2.9rem;
   }
-  .site-header__brand { flex-direction: row; gap: 0.6rem; position: relative; z-index: 60; }
-  .site-header__logo { height: 2.1rem; }
+  .site-header__brand {
+    flex-direction: row; gap: 0.6rem; z-index: 60;
+    /* max-content: an absolute box anchored at left:50% would otherwise be
+       shrink-to-fit inside the remaining half and squeeze the wordmark. */
+    position: absolute; left: 50%; transform: translateX(-50%); width: max-content;
+  }
+  .site-header__logo { height: 2.9rem; }
   .site-header__toggle {
-    display: block; position: absolute; top: 50%; right: 0; transform: translateY(-50%); z-index: 60;
+    display: block; order: -1; flex: none; z-index: 60;
   }
   .nav-open .site-header__burger, .nav-open .site-header__burger::before,
   .nav-open .site-header__burger::after { background: var(--ink); }
@@ -1443,15 +1453,23 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   .article-block--lead .article-block__title.serif { font-size: var(--step-2); }
   .themes-strip { grid-template-columns: 1fr; }
   .themes-strip .u-arrow { grid-column: 1; }
-  /* Hero: drop the "§ 01 • Destaque" rail and reflow as
-     meta → title → art → excerpt → CTA. `display: contents`
-     promotes the text children to grid items so they can be ordered. */
+  /* Hero: §01 rail gone; bleed the image edge-to-edge and reflow as
+     meta → art → title → excerpt → CTA. */
   .home-hero__bar { display: none; }
-  .home-hero__grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .home-hero__grid { grid-template-columns: 1fr; gap: 1.2rem; }
   .home-hero__text { display: contents; }
-  .home-hero__meta { order: 1; margin-bottom: -0.5rem; }
-  .home-hero__title { order: 2; }
-  .home-hero__art { order: 3; }
+  .home-hero__meta { order: 1; margin-bottom: 0; }
+  .home-hero__art {
+    order: 2;
+    /* Full-bleed: break out of the .wrap padding. */
+    margin-left: calc(-1 * var(--gutter));
+    margin-right: calc(-1 * var(--gutter));
+    border-radius: 0;
+    width: calc(100% + 2 * var(--gutter));
+    max-width: none;
+  }
+  .home-hero__art img { aspect-ratio: 4 / 3; }
+  .home-hero__title { order: 3; font-size: clamp(1.6rem, 6vw, 2.2rem); }
   .home-hero__excerpt { order: 4; }
   .home-hero__foot { order: 5; margin-top: 0; }
   .home-grid { grid-template-columns: 1fr; }
@@ -1476,8 +1494,10 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
 }
 
 /* Sub-360px (iPhone SE 1st gen and friends): the byline is redundant with the
-   header wordmark, so drop it to keep the meta row single-line. */
+   header wordmark, so drop it to keep the meta row single-line, and the
+   centred wordmark has to shrink or it would run into the burger. */
 @media (max-width: 22.5rem) {
+  .site-header__logo { height: 2.3rem; }
   .post-meta-bar .post-byline,
   .post-meta-bar .post-byline + .eyebrow-sep { display: none; }
 }
