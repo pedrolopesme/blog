@@ -1,7 +1,7 @@
 # Margens — build & authoring tasks.
 #
 #   make install      install dependencies
-#   make dev          build for local preview and serve at :4321
+#   make run          build for local preview and serve at :4321
 #   make build        production build (into dist/)
 #   make serve        serve an existing dist/ build
 #   make new title="…" [cat="A,B"] [html=1]   scaffold a new post
@@ -24,7 +24,7 @@ NPM  ?= npm
 help:
 	@echo "Margens — tarefas disponíveis:"
 	@echo "  make install                 instala dependências"
-	@echo "  make dev                     build local + servidor em :$(PORT)"
+	@echo "  make run                     build local + servidor em :$(PORT)"
 	@echo "  make build                   build de produção (base $(BASE_URL))"
 	@echo "  make serve                   serve o dist/ existente"
 	@echo "  make new title=\"Título\"      cria um novo post (rascunho)"
@@ -49,8 +49,8 @@ build-local: node_modules
 build: node_modules
 	BASE_URL=$(BASE_URL) SITE_URL=$(SITE_URL) $(NODE) build.mjs
 
-.PHONY: dev
-dev: build-local
+.PHONY: run
+run: build-local
 	$(NODE) scripts/serve.mjs --port $(PORT)
 
 .PHONY: drafts

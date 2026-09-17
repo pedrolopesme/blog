@@ -10,7 +10,7 @@ No framework, no database, no runtime. Content in, static HTML out.
 
 ```bash
 make install     # install dependencies
-make dev         # build for local preview + serve at http://localhost:4321
+make run         # build for local preview + serve at http://localhost:4321
 ```
 
 To create a new post:
@@ -148,7 +148,7 @@ To serve from the repository root instead (a user site named
 
 | Command                     | Effect                                    |
 | --------------------------- | ----------------------------------------- |
-| `make dev`                  | local build (base `/`) + preview server   |
+| `make run`                  | local build (base `/`) + preview server   |
 | `make build`                | production build into `dist/`             |
 | `make serve`                | serve an existing `dist/`                 |
 | `make new title="…"`        | scaffold a new post                       |
