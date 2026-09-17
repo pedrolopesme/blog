@@ -1444,9 +1444,17 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   .article-block--lead .article-block__title.serif { font-size: var(--step-2); }
   .themes-strip { grid-template-columns: 1fr; }
   .themes-strip .u-arrow { grid-column: 1; }
-  .home-hero__bar { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
-  .home-hero__bar-right { display: none; }
-  .home-hero__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  /* Hero: drop the "§ 01 • Destaque" rail and reflow as
+     meta → title → art → excerpt → CTA. `display: contents`
+     promotes the text children to grid items so they can be ordered. */
+  .home-hero__bar { display: none; }
+  .home-hero__grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .home-hero__text { display: contents; }
+  .home-hero__meta { order: 1; margin-bottom: -0.5rem; }
+  .home-hero__title { order: 2; }
+  .home-hero__art { order: 3; }
+  .home-hero__excerpt { order: 4; }
+  .home-hero__foot { order: 5; margin-top: 0; }
   .home-grid { grid-template-columns: 1fr; }
   .home-section__head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
   .home-section__kicker { display: none; }
