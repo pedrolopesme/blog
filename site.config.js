@@ -40,6 +40,7 @@ export default {
   // Footer links (social, contact...). Absolute URLs are left untouched.
   social: [
     { label: "GitHub", href: "https://github.com/pedrolopesme" },
+    { label: "X", href: "https://x.com/pedrolopesme" },
     { label: "RSS", href: "/feed.xml" },
   ],
 
