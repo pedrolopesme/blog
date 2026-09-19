@@ -7,12 +7,13 @@
 #   make new title="…" [cat="A,B"] [html=1]   scaffold a new post
 #   make clean        remove the build output
 #
-# Production is a GitHub Pages *project* site, served under /<repo>/, so the
-# production build is based at /blog/. Local builds are based at / for preview.
+# The site is served from a custom domain at the root, so both local and
+# production builds are based at "/". SITE_URL is the absolute origin used for
+# feed.xml / sitemap.xml / canonical links.
 
 # Deploy settings (override on the CLI or in CI):
-BASE_URL ?= /blog/
-SITE_URL ?= https://pedrolopesme.github.io
+BASE_URL ?= /
+SITE_URL ?= https://blog.mendespedro.com
 PORT     ?= 4321
 
 NODE ?= node

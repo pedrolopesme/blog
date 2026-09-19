@@ -101,6 +101,11 @@ async function copyStaticAssets() {
   await copyDir(path.join(SRC, "styles"), path.join(OUT, "assets", "styles"));
   // Global assets (site-wide images, fonts, favicons...).
   await copyDir(path.join(SRC, "assets"), path.join(OUT, "assets"));
+  // Custom domain: GitHub Pages needs a CNAME at the site root, and an
+  // Actions artifact deploy only keeps the domain if the file is present.
+  if (site.cname) {
+    await writeFile(path.join(OUT, "CNAME"), `${site.cname}\n`);
+  }
 }
 
 // ---------------------------------------------------------------------------

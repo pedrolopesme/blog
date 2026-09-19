@@ -1,18 +1,22 @@
 // Central site configuration.
 //
-// baseUrl  — path the site is mounted on. GitHub Pages serves a *project*
-//            repository under "/<repo>/", so production builds pass
-//            BASE_URL=/blog/ (see the Makefile / CI). Local builds use "/".
+// baseUrl  — path the site is mounted on. With a custom domain the site is
+//            served at the root, so builds use "/". A bare GitHub Pages
+//            *project* site is served under "/<repo>/" (BASE_URL=/blog/).
 // siteUrl  — absolute origin, used for RSS and canonical/OpenGraph links.
+// cname    — custom domain; written verbatim to dist/CNAME so GitHub Pages
+//            keeps the domain across Actions deploys (else it resets and the
+//            build falls back to the /<repo>/ base path).
 //
 // Everything else here is editorial metadata you are meant to edit freely.
 
 const baseUrl = normalizeBase(process.env.BASE_URL || "/");
-const siteUrl = (process.env.SITE_URL || "https://pedrolopesme.github.io").replace(/\/$/, "");
+const siteUrl = (process.env.SITE_URL || "https://blog.mendespedro.com").replace(/\/$/, "");
 
 export default {
   baseUrl,
   siteUrl,
+  cname: "blog.mendespedro.com",
 
   title: "Pedro Mendes",
   // A short, editorial tagline. Shown in the header and <title>.
