@@ -694,39 +694,38 @@ a:hover { text-decoration-color: currentColor; }
 /* The date ships in two widths; the short one takes over on narrow screens. */
 .post-meta__date--short { display: none; }
 
-/* Cover hero: image as background, white serif title overlaid */
-.post-cover { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); height: clamp(17rem, 38vw, 29rem); overflow: hidden; border-radius: 0; }
+/* Cover hero — pure visual strip (no text overlay). */
+.post-cover { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); height: clamp(22rem, 50vw, 38rem); overflow: hidden; border-radius: 0; }
 .post-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
-.post-cover__overlay {
-  position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  padding: clamp(3rem, 7vw, 5rem) clamp(2rem, 6vw, 6rem);
-  text-align: center; color: #fff;
-}
-.post-cover__overlay::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(to top, rgba(26, 24, 22, 0.82) 0%, rgba(26, 24, 22, 0.48) 40%, rgba(26, 24, 22, 0.08) 100%);
-  transition: opacity 0.65s ease;
-}
-.post-cover:hover .post-cover__overlay::before { opacity: 0; }
-.post-cover__title {
-  font-family: var(--font-display); font-weight: 400; color: #fff;
-  font-size: clamp(2.6rem, 5.6vw, 4.9rem); line-height: 1.08; letter-spacing: -0.03em;
-  font-variation-settings: "opsz" 72; max-width: 20ch; margin: 0 auto;
-  text-shadow: 0 1px 24px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.16);
-  transition: opacity 0.65s ease, text-shadow 0.65s ease;
-}
-.post-cover:hover .post-cover__title {
-  opacity: 0; text-shadow: none;
-}
-.post-cover__cat {
-  position: absolute; bottom: clamp(1.2rem, 2.5vw, 2rem); left: 0; right: 0;
-  font-size: 0.76rem; letter-spacing: 0.14em;
-  opacity: 0.85;
-  transition: opacity 0.65s ease;
-}
-.post-cover:hover .post-cover__cat { opacity: 0; }
+.post-cover__overlay { display: none; }
 .post-header[hidden] { display: none; }
+
+/* Aurora Solar–inspired info strip: sepia ground, title left, meta right. */
+.post-hero {
+  background: var(--sepia-tint); border-bottom: 1px solid var(--rule);
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+.post-hero__grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.post-hero__title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  line-height: 1.1; letter-spacing: -0.025em;
+  font-variation-settings: "opsz" 72; margin: 0.15em 0 0;
+  color: var(--ink);
+}
+.post-hero__right {
+  display: flex; flex-direction: column; gap: 1.2rem; padding-top: 0.3rem;
+}
+.post-hero__summary {
+  font-family: var(--font-serif); font-size: var(--step-0);
+  line-height: 1.65; color: var(--ink-soft); margin: 0;
+}
+.post-hero__details .post-meta {
+  margin: 0; justify-content: flex-start;
+}
 
 /* Post intro: compact meta + share bar */
 .post-intro {
@@ -1472,6 +1471,8 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   .tool--type .tool__aa { font-size: 1.3rem; }
   .tool--theme svg { width: 22px; height: 22px; }
   .post-title { font-size: var(--step-3); }
+  .post-hero__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .post-hero__right { gap: 1rem; padding-top: 0; }
   .mag-grid { grid-template-columns: 1fr; }
   .article-block--lead:has(.article-block__art) { grid-template-columns: 1fr; gap: 1rem; }
   .article-block--lead .article-block__title.serif { font-size: var(--step-2); }
