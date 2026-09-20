@@ -55,6 +55,7 @@ a { color: inherit; }
   --step-2:  clamp(1.65rem, 1.44rem + 1.05vw, 2.2rem);
   --step-3:  clamp(2.0rem, 1.62rem + 1.9vw, 3rem);
   --step-4:  clamp(2.45rem, 1.86rem + 2.95vw, 4.1rem);
+  --step-0-p: calc(var(--step-0) * 1.15); /* body-copy size: matches the 115% step of the font-size selector */
 
   --leading: 1.72;
   --leading-tight: 1.18;
@@ -396,13 +397,13 @@ a:hover { text-decoration-color: currentColor; }
   margin-bottom: 0.4rem;
 }
 .home-card__title {
-  font-family: var(--font-serif); font-weight: 500; font-size: 1.22rem;
+  font-family: var(--font-serif); font-weight: 500; font-size: var(--step-0-p);
   letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 0.45em;
 }
 .home-card__title a { color: var(--ink); text-decoration: none; }
 .home-card__title a:hover { color: var(--accent); }
 .home-card__excerpt {
-  font-family: var(--font-serif); color: var(--ink-soft); font-size: 0.95rem;
+  font-family: var(--font-serif); color: var(--ink-soft); font-size: var(--step-0);
   line-height: 1.6; margin-bottom: 0.5rem;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
@@ -456,7 +457,7 @@ a:hover { text-decoration-color: currentColor; }
 .home-row__title a { color: var(--ink); text-decoration: none; transition: color 0.2s ease; }
 .home-row:hover .home-row__title a { color: var(--accent); }
 .home-row__excerpt {
-  font-family: var(--font-serif); font-size: 0.95rem; color: var(--ink-soft);
+  font-family: var(--font-serif); font-size: var(--step-0); color: var(--ink-soft);
   line-height: 1.6; max-width: 42rem; margin: 0;
 }
 
@@ -510,7 +511,7 @@ a:hover { text-decoration-color: currentColor; }
 .home-feature__title a { color: var(--ink); text-decoration: none; }
 .home-feature:hover .home-feature__title a { color: var(--accent); }
 .home-feature__excerpt {
-  font-family: var(--font-serif); font-size: 1rem; color: var(--ink-soft);
+  font-family: var(--font-serif); font-size: var(--step-0); color: var(--ink-soft);
   line-height: 1.65; margin-bottom: 1.4rem;
 }
 .home-feature__foot {
@@ -545,7 +546,7 @@ a:hover { text-decoration-color: currentColor; }
   letter-spacing: 0.14em; color: var(--olive-subtle); margin-bottom: 0.3rem;
 }
 .home-mini__title {
-  font-family: var(--font-display); font-weight: 400; font-size: 1.05rem; line-height: 1.25;
+  font-family: var(--font-display); font-weight: 400; font-size: var(--step-0-p); line-height: 1.25;
 }
 .home-mini__title a { color: var(--ink); text-decoration: none; }
 .home-mini:hover .home-mini__title a { color: var(--accent); }
@@ -575,7 +576,7 @@ a:hover { text-decoration-color: currentColor; }
 .home-panorama__title a { color: var(--ink); text-decoration: none; }
 .home-panorama__title a:hover { color: var(--accent); }
 .home-panorama__excerpt {
-  font-family: var(--font-serif); font-size: 1.05rem; color: var(--ink-soft);
+  font-family: var(--font-serif); font-size: var(--step-0); color: var(--ink-soft);
   line-height: 1.7; margin-bottom: 1.4rem;
 }
 .home-panorama__link {
@@ -934,7 +935,7 @@ a:hover { text-decoration-color: currentColor; }
 }
 
 /* The prose column — the heart of the reading experience. */
-.prose { max-width: var(--measure); margin-inline: auto; }
+.prose { max-width: var(--measure); margin-inline: auto; font-size: var(--step-0-p); }
 .prose > * + * { margin-top: 1.35em; }
 .prose > :first-child { margin-top: 0; }
 .prose > :last-child { margin-bottom: 0; }
@@ -1520,7 +1521,7 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
   .home-divider__glyph { font-size: 0.85rem; }
   .site-footer__top { grid-template-columns: repeat(3, 1fr); gap: 1.8rem 1rem; }
   .site-footer__brand-col { grid-column: 1 / -1; max-width: none; }
-  .is-post .prose { font-size: 1.2rem; line-height: 1.75; }
+  .is-post .prose { font-size: 1.38rem; line-height: 1.75; }
   /* Byline + date + reading time and the share buttons share one row:
      short date, tighter type and smaller circles keep it under 351px. */
   .post-meta__date { display: none; }
