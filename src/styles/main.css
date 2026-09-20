@@ -24,6 +24,7 @@ a { color: inherit; }
   --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-dropcap: "Caudex", Georgia, "Times New Roman", serif; /* drop cap only — Caudex tops out at weight 700 */
 
   /* "Bibliotheca Elegans" palette — parchment surfaces, warm charcoal ink,
      burnished terracotta accent. Ported from the Stitch design system. */
@@ -1259,7 +1260,7 @@ a:hover { text-decoration-color: currentColor; }
 
 /* Drop cap — first paragraph of post automatically */
 .is-post .prose > p:first-of-type::first-letter {
-  font-family: var(--font-display); font-weight: 700; float: left;
+  font-family: var(--font-dropcap); font-weight: 700; float: left;
   /* Two-line cap. line-height:1 makes the float box exactly the font size;
      margin-top sinks the glyph so its cap-height meets the first line's
      ascenders, and box height + margins stay under 2 x --leading so the
