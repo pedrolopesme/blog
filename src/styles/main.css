@@ -1266,7 +1266,7 @@ a:hover { text-decoration-color: currentColor; }
      ascenders, and box height + margins stay under 2 x --leading so the
      float clears exactly two lines. */
   font-size: 3em; line-height: 1;
-  margin: 0.098em 0.1em 0.045em 0;
+  margin: 0.098em 0.22em 0.13em 0;
   color: var(--accent-ink);
 }
 
