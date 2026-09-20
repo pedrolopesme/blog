@@ -37,9 +37,9 @@ import {
 import {
   slugify,
   escapeHtml,
-  withBase,
   absoluteUrl,
   toDate,
+  isoDate,
   rfc822,
   readingTime,
   excerptFromHtml,
@@ -62,6 +62,16 @@ const INCLUDE_DRAFTS = /^(1|true|yes)$/i.test(process.env.INCLUDE_DRAFTS || "");
 
 const md = createMarkdown();
 const ctx = makeContext(site);
+const DEFAULT_OG_IMAGE = absoluteUrl(site.siteUrl, site.baseUrl, "/assets/logo-512.png");
+
+/** Resolve an image reference (absolute URL, root-relative path, or a path
+ *  relative to `basePath`) into a fully absolute URL for OG/Twitter tags. */
+function absoluteImage(ref, basePath = "/") {
+  if (!ref) return null;
+  if (/^([a-z]+:)?\/\//i.test(ref)) return ref;
+  const p = ref.startsWith("/") ? ref : basePath + ref;
+  return absoluteUrl(site.siteUrl, site.baseUrl, p);
+}
 
 async function main() {
   const t0 = Date.now();
@@ -283,13 +293,22 @@ async function renderPosts(posts) {
     const prev = i < posts.length - 1 ? posts[i + 1] : null;
     const next = i > 0 ? posts[i - 1] : null;
     const quote = QUOTES[post.slug] || null;
+    const ogImage = absoluteImage(post.ogImage, post.url)
+      || absoluteImage(post.cover, post.url)
+      || DEFAULT_OG_IMAGE;
+    const ogImageAlt = post.coverAlt || post.title;
     const html = layout(ctx, {
       title: post.title,
       description: post.summary,
       bodyClass: bodyClass("is-post", post.theme),
       head: extraHead(post),
       canonicalPath: post.url,
-      ogImage: post.ogImage ? withBase(site.baseUrl, post.ogImage) : undefined,
+      type: "article",
+      ogImage,
+      ogImageAlt,
+      publishedTime: post.date ? isoDate(post.date) : null,
+      section: post.categories[0]?.name || null,
+      tags: post.categories.map((c) => c.name),
       main: articleMain(ctx, post, related, prev, next, quote),
     });
     await writeFile(path.join(outDir, "index.html"), html);
@@ -304,6 +323,8 @@ async function renderPages(pages) {
       bodyClass: bodyClass("is-page", page.theme),
       head: extraHead(page),
       canonicalPath: page.url,
+      ogImage: page.photo ? absoluteImage(page.photo, "/assets/") : DEFAULT_OG_IMAGE,
+      ogImageAlt: page.photoAlt || site.title,
       main: pageMain(ctx, page),
     });
     await writeFile(path.join(OUT, page.slug, "index.html"), html);
@@ -315,6 +336,7 @@ async function renderHome(posts) {
     title: "",
     bodyClass: "is-home",
     canonicalPath: "/",
+    ogImage: DEFAULT_OG_IMAGE,
     main: homeMain(ctx, { posts }),
   });
   await writeFile(path.join(OUT, "index.html"), html);
@@ -325,6 +347,7 @@ async function renderPostsIndex(posts) {
     title: "Escritos",
     bodyClass: "is-list",
     canonicalPath: "/posts/",
+    ogImage: DEFAULT_OG_IMAGE,
     main: listMain(ctx, {
       title: "Escritos",
       lead: "Tudo o que já publiquei, do mais recente ao mais antigo.",
@@ -340,6 +363,7 @@ async function renderCategories(categories, _posts) {
     title: "Temas",
     bodyClass: "is-list",
     canonicalPath: "/categorias/",
+    ogImage: DEFAULT_OG_IMAGE,
     main: categoriesIndexMain(ctx, { categories }),
   });
   await writeFile(path.join(OUT, "categorias", "index.html"), indexHtml);
@@ -350,6 +374,7 @@ async function renderCategories(categories, _posts) {
       title: cat.name,
       bodyClass: bodyClass("is-list", cat.name),
       canonicalPath: `/categorias/${cat.slug}/`,
+      ogImage: DEFAULT_OG_IMAGE,
       main: listMain(ctx, {
         title: cat.name,
         lead: `Escritos sob o tema “${cat.name}”.`,
@@ -423,6 +448,7 @@ async function render404() {
     title: "Página não encontrada",
     bodyClass: "is-404",
     canonicalPath: "/404.html",
+    ogImage: DEFAULT_OG_IMAGE,
     main: `    <section class="page-head wrap" style="text-align:center">
       <h1 class="page-title">Perdido nas margens</h1>
       <p class="page-lead">Esta página não existe (ou já não existe mais).</p>
