@@ -185,8 +185,7 @@ a:hover { text-decoration-color: currentColor; }
 .site-nav a:hover { color: var(--accent); }
 .site-nav a:hover::after { transform: scaleX(1); }
 
-.site-footer { background: #f5f3f0; border-top: 3px double var(--rule-strong);
-  margin-top: clamp(3rem, 8vw, 6rem); }
+.site-footer { background: #f5f3f0; border-top: 3px double var(--rule-strong); }
 .site-footer__top {
   display: grid; grid-template-columns: 1.4fr repeat(3, 1fr);
   gap: clamp(2rem, 5vw, 4rem); padding-block: clamp(2.5rem, 6vw, 4rem);
@@ -203,6 +202,17 @@ a:hover { text-decoration-color: currentColor; }
 .site-footer__col a { font-family: var(--font-sans); text-decoration: none; font-size: 0.82rem; color: var(--ink-soft); }
 .site-footer__col a:hover { color: var(--accent); }
 .site-footer__base { margin-top: 0; padding-block: 1.2rem; border-top: 1px solid var(--rule); }
+
+/* Tree illustration — decorative, flush against the footer.
+   Starts pushed down and slides up as it scrolls into view. */
+.site-tree { line-height: 0; overflow: hidden; }
+.site-tree img {
+  display: block; width: 100%; height: auto;
+  max-width: 700px; margin-inline: auto;
+  transform: translateY(30%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.site-tree.is-revealed img { transform: translateY(0); }
 
 /* ---------- 6. Caps, eyebrows, home & listings ------------------------- */
 
@@ -1559,6 +1569,8 @@ mark.hl[data-color="green"]  { background: #b9e0a6; }
    (this also overrides the blanket image dimming above). */
 [data-theme="dark"] .site-header__logo { filter: invert(1) brightness(0.95); }
 [data-theme="dark"] .post-hero { background: #3b2824; }
+/* Tree is black ink on transparency — flip it on dark ground. */
+[data-theme="dark"] .site-tree img { filter: invert(1) brightness(0.92); }
 @media (max-width: 40rem) {
   [data-theme="dark"] .site-nav { background: var(--paper); }
 }
